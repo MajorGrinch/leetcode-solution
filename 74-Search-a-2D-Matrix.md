@@ -6,13 +6,9 @@
 
 第一步先找到哪一行有可能存在target，这里我们预设的Loop invariant是target一定出现在[l, r]这些行里。如果`matrix[mid][0] <= target && target <= matrix[mid][n-1]` 的话，那么target只可能在这一行，直接break。如果matrix[mid][0] > target，那么target只有可能在[l, mid - 1]这些行里。如果matrix[mid][n - 1] > target，那么target只可能在[mid + 1, r]这些行里。这样就可以维持loop invariant。
 
-这我为了避免最后还要再检查一遍，所以`while(l <= r)`。这样我使得`l == mid == r`这种情况成为可能，所以在循环结束之前，如果有一行能放得下target，那就必然会被捕捉到并break。
-
 第二步在行内找target，loop invariant是target一定出现在[l, r]这个区间里。通过操作维护循环不变量，最后返回。
 
-但是这里我写了两个版本的行内查找，主要区别是`while(l < r)`和`while(l <= r)`。第二种循环有可能遇到`l == mid == r`这么个情况，所以如果target真的在的话，必然会在某一轮循环里被找到直接返回true。如果这个循环能一直执行到`l > r`然后结束的话，那么说明target不在，我就有自信直接返回false。
-
-当然了，这样写不太适合初学者理解，纯当炫技就好。我一般还是更倾向于`while(l < r)`这个，因为我们假定的循环不变量是要找的数在[l, r]之间，区间缩短到只有1个数时就看看那个数是否是target，缩短到0个数说明没有target。
+但是这里我写了两个版本的行内查找，主要区别是`while(l < r)`和`while(l <= r)`。关于这俩循环的区别，看[二分搜索专题](Binary-Search.md)。
 
 ```java
 class Solution {
