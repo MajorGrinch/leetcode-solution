@@ -4,7 +4,7 @@
 
 二分搜索其实很简单，假定一个循环不变量loop invariant，并且让你的每一轮循环去维持这个循环不变量。
 
-就拿278来说，find first bad version。
+就拿[278](278-First-Bad-Version.md)来说，find first bad version。
 
 我们的循环不变量(loop invariant)是first bad version出现在[l, r]区间里。
 
