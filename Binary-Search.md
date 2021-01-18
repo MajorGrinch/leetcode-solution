@@ -18,12 +18,14 @@
 
 ## while(l < r) OR while(l <= r)
 
-这是两个不同的循环条件，有时候不知道该用哪个。
+这是两个不同的二分查找循环条件，有时候不知道该用哪个。其实他们在语义上就有着根本区别。
++ **`while(l < r)`本质上是希望最后把target逼到一个长度为1或0的区间，并加以判断。如果区间有1个数，说明这个数就是我们要的target。如果区间有0个数，说明target没找到。**
++ **`while(l <= r)`本质上是让你搜完整个区间，并在搜索过程中发现你要的target。如果该循环因为`l > r`而结束的话，说明没有搜到target。**
 
-我们仔细看看这个循环的终止状态，`while(l < r)`会因为`l == r` or `l - 1 == r`而结束，此时对应着我们区间里只有1个数或者0个数。很好理解 ，区间里只有1个数时就看看这个数到底是不是target，0个数就说明我没找到target。
+我们仔细看看他们的终止状态，`while(l < r)`会因为`l == r` or `l - 1 == r`而结束，此时对应着我们区间里只有1个数或者0个数。很好理解 ，区间里只有1个数时就看看这个数到底是不是target，0个数就说明我没找到target。
 
 
-而`while(l <= r)`只会因为`l > r`而结束，此时我们搜索区间就必然是0个数。但是，`while(l <= r)`有个性质，就是这个情况有可能会发生`l == mid == r`。即l和r相等，算出来的mid也就和他俩一样。由于这个性质，所以如果我们的目的是找到target直接返回，比如
+而`while(l <= r)`只会因为`l > r`而结束，此时我们搜索区间就必然没有数了。但是，`while(l <= r)`有个性质，就是这个情况有可能会发生`l == mid == r`。即l和r相等，算出来的mid也就和他俩一样。由于这个性质，所以如果我们的目的是在搜索过程中找到并返回，比如
 ```java
 if(nums[mid] == target){
     return true;  // or return mid;
@@ -31,7 +33,9 @@ if(nums[mid] == target){
 ```
 那么用`while(l <= r)`的话，如果target真的出现了最后一定会被捕捉到直接return，如果这个循环因为`l > r`而结束的话，那就肯定没有target。
 
-不过，如果我们不是找到直接返回，而是逼近某个条件，那么`while(l <= r)`就不行了。因为这里的目的不仅仅是找到target就行，而是附带其他条件的。比如[34](34-Find-First-and-Last-Position.md)题，找last occurrence的时候。
+所以，我们在写二分的时候首先要明确一点——我这个二分到底是想在搜索过程中找到并直接返回答案，还是想把答案逼近到一个长度为0或者1的区间里用作最后的判断。
+
+比如[34](34-Find-First-and-Last-Position.md)题，找last occurrence的时候。这个方法是不断地缩小[l, r]区间同时维护loop invariant来逼近last occurrence，最后再加以判断，并不是找到了就直接返回，所以`while(l <= r)`就不行了。
 ```java
 private int lastOccurrence(int[] nums, int target){
     int l = 0, r = nums.length - 1;
@@ -46,7 +50,8 @@ private int lastOccurrence(int[] nums, int target){
     return nums[r] == target ? r : l;
 }
 ```
-这里我们只是不断地调整边界来维护loop invariant来逼近last occurrence，并没有找到了就直接返回的情况，所以`while(l <= r)`就不行了。当然了，我们可以把找last occurrence写成一个返回条件。这当然是可以的，只不过代码稍微复杂点。如下，
+
+当然了，这里我们也可以在搜索过程中找到last occurrence并直接返回。这当然是可以的，只不过代码稍微复杂点。如下，
 ```java
 private int lastOccurrence2(int[] nums, int target){
     int l = 0, r = nums.length - 1;
@@ -54,6 +59,7 @@ private int lastOccurrence2(int[] nums, int target){
         int mid = l + (r-l >> 1);
         if(nums[mid] == target){
             if(mid == nums.length - 1 || nums[mid + 1] > target){
+                // if mid is last element of array or nums[mid + 1] gt target
                 return mid;
             }else{
                 l = mid + 1;
@@ -68,4 +74,6 @@ private int lastOccurrence2(int[] nums, int target){
 }
 ```
 
-总结一下，如果循环体里有直接return或者break的情况，那么可以用`while(l <= r)`，因为如果有满足条件的target，肯定会被找到。如果循环体里只是不断地调整边界，那么还是用`while(l < r)`，最后检查一下l就行，同时注意死循环的问题。
+总结一下，关于这两种循环的使用主要在于
++ 如果是想在搜索过程中找到target并直接返回，那就`while(l <= r)`。
++ 如果是想把答案逼近一个长度为0/1的区间并加以判断，那就是`while(l < r)`。
