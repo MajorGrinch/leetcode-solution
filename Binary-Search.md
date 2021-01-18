@@ -23,7 +23,7 @@
 我们仔细看看这个循环的终止状态，`while(l < r)`会因为`l == r` or `l - 1 == r`而结束，此时对应着我们区间里只有1个数或者0个数。很好理解 ，区间里只有1个数时就看看这个数到底是不是target，0个数就说明我没找到target。
 
 
-而`while(l <= r)`只会因为`l > r`而结束，此时我们搜索区间就必然是0个数。但是，`while(l <= r)`有个性质，就是这个情况有可能会发生`l == mid == r`。即l和r相等，算出来的mid也就和他俩一样。由于这个性质，所以如果我们的目的是找到target就行了，诸如
+而`while(l <= r)`只会因为`l > r`而结束，此时我们搜索区间就必然是0个数。但是，`while(l <= r)`有个性质，就是这个情况有可能会发生`l == mid == r`。即l和r相等，算出来的mid也就和他俩一样。由于这个性质，所以如果我们的目的是找到target直接返回，比如
 ```java
 if(nums[mid] == target){
     return true;  // or return mid;
@@ -31,7 +31,22 @@ if(nums[mid] == target){
 ```
 那么用`while(l <= r)`的话，如果target真的出现了最后一定会被捕捉到直接return，如果这个循环因为`l > r`而结束的话，那就肯定没有target。
 
-不过，如果我们是找target的first occurrence or last occurrence，那么`while(l <= r)`还是就不行了。因为这里的目的不仅仅是找到target就行，而是附带条件的，所以我们没有直接return的操作。当然了，你可以加上return，只是代码稍微复杂一点。
+不过，如果我们不是找到直接返回，而是逼近某个条件，那么`while(l <= r)`就不行了。因为这里的目的不仅仅是找到target就行，而是附带其他条件的。比如[34](34-Find-First-and-Last-Position.md)题，找last occurrence的时候。
+```java
+private int lastOccurrence(int[] nums, int target){
+    int l = 0, r = nums.length - 1;
+    while(r - l > 1){
+        int mid = l + (r-l >> 1);
+        if(nums[mid] <= target){
+            l = mid;
+        }else{
+            r = mid - 1;
+        }
+    }
+    return nums[r] == target ? r : l;
+}
+```
+这里我们只是不断地调整边界来维护loop invariant来逼近last occurrence，并没有找到了就直接返回的情况，所以`while(l <= r)`就不行了。当然了，我们可以把找last occurrence写成一个返回条件。这当然是可以的，只不过代码稍微复杂点。如下，
 ```java
 private int lastOccurrence2(int[] nums, int target){
     int l = 0, r = nums.length - 1;
