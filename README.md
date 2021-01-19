@@ -16,3 +16,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 ## Divide & Concur
 
 + [509. Fibonacci Number](509-Fibonacci-Number.md)
++ [50. Pow(x, n)](50-Pow.md)
