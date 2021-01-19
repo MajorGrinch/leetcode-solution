@@ -10,3 +10,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [278. First Bad Version](278-First-Bad-Version.md)
 + [658. Find K Closest Element](658-Find-K-Closest-Elements.md)
 + [704. Binary Search](704-Binary-Search.md)
++ [744. Find Smallest Letter Greater Than Target](744-Find-Smallest-Letter-Greater-Than-Target.md)
