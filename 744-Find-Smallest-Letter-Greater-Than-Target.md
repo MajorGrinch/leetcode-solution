@@ -1,4 +1,4 @@
-744. Find Smallest Letter Greater Than Target
+# 744. Find Smallest Letter Greater Than Target
 
 二分搜索逼近答案。loop invariant是，第一个比target大的字母一定在[l, r]区间里。
 
