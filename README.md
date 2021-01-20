@@ -17,3 +17,8 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 
 + [509. Fibonacci Number](509-Fibonacci-Number.md)
 + [50. Pow(x, n)](50-Pow.md)
+
+## Sorting Algorithm
+
++ [laicode 4. Selection Sort](laicode-4-Selection-Sort.md)
++ [laicode 9. Merge Sort](laicode-9-Merge-Sort.md)
