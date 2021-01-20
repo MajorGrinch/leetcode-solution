@@ -14,6 +14,10 @@
 + 给定两个有序数组，把他们合并成一个有序数组
 + 给定一个无序数组，对他进行拆分排序，之后再合并子数组。
 
+Time complexity: O(NlogN). logN层的递归树，每一层都要遍历整个数组。
+
+Space complexity: O(N)，因为有个额外的数组用于临时存放元素。
+
 ```java
 public class Solution {
     public int[] mergeSort(int[] array) {
