@@ -14,6 +14,10 @@
 
 这么做的代价就是最后需要额外检查一下l和r，并且返回。
 
+Time complexity: O(logN)
+
+Space complexity: O(1)
+
 ```java
 class Solution {
     private final int[] noAns = {-1, -1};

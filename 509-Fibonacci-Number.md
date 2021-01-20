@@ -12,6 +12,10 @@
 
 ![alter_text](assets/images/fibonacciRecursion5.png)
 
+Time complexity: O(1 + 2 + 4 + 8 + 16 + ... + 2^n) = O(2^n)
+
+Space complexity: O(n), because of the n level recursion.
+
 ```java
 class Solution {
     public int fib(int n) {

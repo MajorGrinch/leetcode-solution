@@ -6,6 +6,10 @@
 
 最后[l, r]区间逼近到长度为1或者0，直接看letters[l]是不是比target大，是的话就返回。不是的话，根据题意返回首字母。
 
+Time complexity: O(logN)
+
+Space complexity: O(1)
+
 ```java
 class Solution {
     public char nextGreatestLetter(char[] letters, char target) {

@@ -12,6 +12,10 @@
 
 最后结束的时候，l == r，说明第一个GE的数就是这个。
 
+Time complexity: O(logN)
+
+Space complexity: O(1)
+
 ```java
 class Solution {
     public int searchInsert(int[] nums, int target) {

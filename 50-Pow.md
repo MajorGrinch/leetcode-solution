@@ -10,6 +10,10 @@ Corner case:
 + n 是负数怎么办？转化为正数，最后被1除。
 + 注意 n 是 `-2147483648`，int的范围是 `-2147483648 ~ 2147483647`。
 
+Time complexity: O(log(n)), because of log(n) level recursion.
+
+Space complexity: O(log(n)), because of log(n) level recursion.
+
 ```java
 class Solution {
     public double myPow(double x, int n) {
@@ -48,6 +52,10 @@ class Solution {
 那么`5^n`具体是哪些5的2的整数幂次方相乘得到的呢？accumulator初始化为 `5^1`，prodduct初始化为`1.0 == 5^0`。
 
 不断循环到n的二进制没有1为止，也就是n == 0。当前轮我们取n的最低位，看看是不是1。是1的话说明这里是一个5的2的整数幂次方，所以需要乘以accumulator。如果不是1的话，说明这里不是，则不需要累乘。做完这些操作之后，对accumulator进行累乘，也就是平方，这样 `5^1`才能变成`5^2`,`5^4`等等。同时对n进行右移操作，更新最低位直至n == 0。
+
+Time complexity: O(1), because integer has maximum 32 bits.
+
+Space complexity: O(1), because only a few extra local varialble are created.
 
 ```java
 class Solution2 {

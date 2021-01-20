@@ -9,6 +9,10 @@
 Corner case:
 + 数组本身不足k+1个元素，则取全体元素返回
 
+Time complexity: O(logN + k), N is array length.
+
+Space complexity: O(k), because we have to return list.
+
 ```java
 class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {

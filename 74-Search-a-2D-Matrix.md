@@ -10,6 +10,10 @@
 
 但是这里我写了两个版本的行内查找，主要区别是`while(l < r)`和`while(l <= r)`。关于这俩循环的区别，看[二分搜索专题](Binary-Search.md)。
 
+Time complexity: O(log(m) + log(n))
+
+Space complexity: O(1)
+
 ```java
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {

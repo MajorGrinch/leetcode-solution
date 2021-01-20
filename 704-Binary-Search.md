@@ -10,6 +10,10 @@
 
 循环终止条件是 l >= r，那么很有可能最后l > r 或者 l == r。但是，这并不要紧，因为我们的循环维持的循环不变量是 target 出现在[l, r]这个闭区间里。如果l > r的话，说明target根本没出现。如果l == r的话，就看看nums[l]到底是不是target就好了。
 
+Time complexity: O(logN)
+
+Space complexity: O(1)
+
 ```java
 class Solution {
     public int search(int[] nums, int target) {

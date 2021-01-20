@@ -10,6 +10,10 @@
 
 最后循环终止，l == r，就是first bad version。
 
+Time complexity: O(logN)
+
+Space complexity: O(1)
+
 ```java
 /* The isBadVersion API is defined in the parent class VersionControl.
       boolean isBadVersion(int version); */
