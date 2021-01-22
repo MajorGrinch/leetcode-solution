@@ -22,3 +22,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 
 + [laicode 4. Selection Sort](laicode-4-Selection-Sort.md)
 + [laicode 9. Merge Sort](laicode-9-Merge-Sort.md)
++ [laicode 10. Quick Sort](laicode-10-Quick-Sort.md)
