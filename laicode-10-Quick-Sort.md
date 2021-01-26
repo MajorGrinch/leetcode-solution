@@ -53,6 +53,24 @@ public class Solution {
         return l;
     }
 
+    private int partition2(int[] array, int left, int right) {
+        int pivotIndex = getPivotIndex(left, right);
+        int pivot = array[pivotIndex];
+        swap(array, pivotIndex, right);
+        int l = left, r = right - 1;
+        while (l <= r) {
+            if (array[l] < pivot) {
+                l++;
+            }else if(array[r] >= pivot){
+                r--;
+            }else{
+                swap(array, l++, r--);
+            }
+        }
+        swap(array, l, right);
+        return l;
+    }
+
     private int getPivotIndex(int left, int right){
         return left + (int)(Math.random() * (right - left + 1)); // add 1 because random() returns [0, 1)
     }
