@@ -24,3 +24,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 9. Merge Sort](laicode-9-Merge-Sort.md)
 + [laicode 10. Quick Sort](laicode-10-Quick-Sort.md)
 + [laicode 258. Move 0s To The End I](laicode-258-Move-0s-To-The-End.md)
++ [75. Sort Colors](75-Sort-Colors.md)
