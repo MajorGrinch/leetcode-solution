@@ -29,3 +29,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 ## Linked List
 
 + [206. Reverse Linked List](206-Reverse-Linked-List.md)
++ [876. Middle of the Linked List](876-Middle-of-the-Linked-List.md)
