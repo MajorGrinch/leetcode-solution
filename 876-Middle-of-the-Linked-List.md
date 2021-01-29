@@ -10,6 +10,10 @@
 
 综上，快慢指针同时从首个节点出发，按照各自步长行走。当快指针走到尽头时，慢指针就正好停在了题目所规定的中间点。
 
+Time complexity: O(N)
+
+Space complexity: O(1)
+
 ```java
 class Solution {
     public ListNode middleNode(ListNode head) {
