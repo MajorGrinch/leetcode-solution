@@ -6,6 +6,9 @@
 
 和快排类似的维护循环不变量的方法，最后循环退出时候循环不变量依然成立，所以我们可以确定答案的正确性。
 
+Time complexity: O(N)
+
+Space complexity: O(1)
 
 ```java
 public class Solution {

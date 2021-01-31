@@ -18,6 +18,10 @@
 
 由于我们不断地维护循环不变量，循环结束之后[left, l)均小于`pivot`依然成立，(r, right - 1]也依然成立。只不过，可以改写为[left, l) < pivot，[l, right - 1] >= pivot。由于我们之前把pivot换到right位置了，所以现在把pivot换回到当前`l`的位置就可以实现——pivot左边都小于等于它，pivot右边都大于等于它。
 
+Time complexity: O(NlogN) in average, O(N^2) in worst case
+
+Space complexity: O(logN) in average, O(N) in worst case
+
 ```java
 public class Solution {
     public int[] quickSort(int[] array) {

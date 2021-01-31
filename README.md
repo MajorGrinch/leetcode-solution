@@ -31,3 +31,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [206. Reverse Linked List](206-Reverse-Linked-List.md)
 + [876. Middle of the Linked List](876-Middle-of-the-Linked-List.md)
 + [141. Linked List Cycle](141-Linked-List-Cycle.md)
++ [142. Linked List Cycle II](142-Linked-List-Cycle-2.md)

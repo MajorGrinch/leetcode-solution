@@ -12,6 +12,10 @@
 
 当循环退出之后，我们的循环不变量就能证明我们结果的正确性了。
 
+Time complexity: O(N)
+
+Space complexity: O(1)
+
 ```java
 class Solution {
     public void sortColors(int[] nums) {
