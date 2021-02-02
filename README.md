@@ -40,3 +40,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [86. Partition List](86-Partition-List.md)
 + [148. Sort List](148-Sort-List.md)
 + [2. Add Two Numbers](2-Add-Two-Numbers.md)
++ [234. Palindrome Linked List](234-Palindrome-Linked-List.md)
