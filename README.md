@@ -39,3 +39,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [143. Reorder List](143-Reorder-List.md)
 + [86. Partition List](86-Partition-List.md)
 + [148. Sort List](148-Sort-List.md)
++ [2. Add Two Numbers](2-Add-Two-Numbers.md)
