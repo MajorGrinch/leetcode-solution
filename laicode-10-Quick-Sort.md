@@ -44,10 +44,10 @@ public class Solution {
         swap(array, pivotIndex, right);
         int l = left, r = right - 1;
         while(l <= r){
-            while(array[l] < pivot){
+            while(l <= r && array[l] < pivot){
                 l++;
             }
-            while(array[r] >= pivot){
+            while(l <= r && array[r] >= pivot){
                 r--;
             }
             if(l >= r) break;
