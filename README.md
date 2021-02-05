@@ -47,3 +47,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 
 + [laicode 280. Sort With 2 Stacks](laicode-280-Sort-With-2-Stacks.md)
 + [232. Implement Queue using Stacks](232-Implement-Queue-using-Stacks.md)
++ [155. Min Stack](155-Min-Stack.md)
