@@ -56,3 +56,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [144. Binary Tree Preorder Traversal](144-Binary-Tree-Preorder-Traversal.md)
 + [94. Binary Tree Inorder Traversal](94-Binary-Tree-Inorder-Traversal.md)
 + [145. Binary Tree Postorder Traversal](145-Binary-Tree-Postorder-Traversal.md)
++ [104. Maximum Depth of Binary Tree](104-Maximum-Depth-Of-Binary-Tree.md)
