@@ -50,3 +50,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [155. Min Stack](155-Min-Stack.md)
 + [225. Implement Stack using Queues](225-Implement-Stack-using-Queues.md)
 + [laicode 645. Deque By Three Stacks](laicode-645-Deque-By-Three-Stacks.md)
++ [144. Binary Tree Preorder Traversal](144-Binary-Tree-Preorder-Traversal.md)
