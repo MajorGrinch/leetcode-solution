@@ -59,3 +59,5 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [104. Maximum Depth of Binary Tree](104-Maximum-Depth-Of-Binary-Tree.md)
 + [110. Balanced Binary Tree](110-Balanced-Binary-Tree.md)
 + [101. Symmetric Tree](101-Symmetric-Tree.md)
++ [951. Flip Equivalent Binary Trees](951-Flip-Equivalent-Binary-Tree.md)
++ [laicode 50. Tweaked Identical Binary Trees](laicode-50-Tweaked-Identical-Binary-Tree.md)
