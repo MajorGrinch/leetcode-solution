@@ -58,3 +58,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [145. Binary Tree Postorder Traversal](145-Binary-Tree-Postorder-Traversal.md)
 + [104. Maximum Depth of Binary Tree](104-Maximum-Depth-Of-Binary-Tree.md)
 + [110. Balanced Binary Tree](110-Balanced-Binary-Tree.md)
++ [101. Symmetric Tree](101-Symmetric-Tree.md)
