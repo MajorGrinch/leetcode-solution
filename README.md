@@ -62,3 +62,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [951. Flip Equivalent Binary Trees](951-Flip-Equivalent-Binary-Tree.md)
 + [laicode 50. Tweaked Identical Binary Trees](laicode-50-Tweaked-Identical-Binary-Tree.md)
 + [98. Validate Binary Search Tree](98-Validate-BST.md)
++ [938. Range Sum of BST](938-Range-Sum-Of-BST.md)
