@@ -65,3 +65,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [938. Range Sum of BST](938-Range-Sum-Of-BST.md)
 + [55. Get Keys In Binary Search Tree In Given Range](laicode-55-Get-Keys-In-BST-In-Given-Range.md)
 + [52. Search In Binary Search Tree](laicode-52-Search-In-BST.md)
++ [701. Insert into a Binary Search Tree](701-Insert-Into-BST.md)
