@@ -67,3 +67,7 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 52. Search In Binary Search Tree](laicode-52-Search-In-BST.md)
 + [701. Insert into a Binary Search Tree](701-Insert-Into-BST.md)
 + [450. Delete Node in a BST](450-Delete-Node-In-BST.md)
+
+## Heap & BFS
+
++ [laicode 25. K Smallest In Unsorted Array](laicode-25-K-Smallest-In-Unsorted-Array.md)
