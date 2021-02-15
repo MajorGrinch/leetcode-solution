@@ -74,3 +74,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 25. K Smallest In Unsorted Array](laicode-25-K-Smallest-In-Unsorted-Array.md)
 + [102. Binary Tree Level Order Traversal](102-Binary-Tree-Level-Order-Traversal.md)
 + [785. Is Graph Bipartite](785-Is-Graph-Bipartite.md)
++ [958. Check Completeness of a Binary Tree](958-Check-Completeness-of-Binary-Tree.md)
