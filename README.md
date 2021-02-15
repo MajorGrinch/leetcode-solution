@@ -70,5 +70,5 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [450. Delete Node in a BST](450-Delete-Node-In-BST.md)
 
 ## Heap & BFS
-
++ [Heap Basics](Heap.md)
 + [laicode 25. K Smallest In Unsorted Array](laicode-25-K-Smallest-In-Unsorted-Array.md)
