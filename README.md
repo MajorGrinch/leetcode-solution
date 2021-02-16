@@ -76,3 +76,6 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [785. Is Graph Bipartite](785-Is-Graph-Bipartite.md)
 + [958. Check Completeness of a Binary Tree](958-Check-Completeness-of-Binary-Tree.md)
 + [378. Kth Smallest Element in a Sorted Matrix](378-Kth-Smallest-Element-Sorted-Matrix.md)
+
+## DFS
++ [78. Subsets](78-Subsets.md)
