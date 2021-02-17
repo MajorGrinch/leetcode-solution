@@ -82,3 +82,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [22. Generate Parentheses](22-Generate-Parentheses.md)
 + [39. Combination Sum](39-Combination-Sum.md)
 + [laicode 73. Combinations Of Coins](73-Combinations-Of-Coins.md)
++ [46. Permutations](46-Permutation.md)
