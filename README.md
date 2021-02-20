@@ -90,3 +90,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 652. Common Numbers Of Two Sorted Arrays](laicode-652-Common-Numbers-Of-Two-Sorted-Arrays.md)
 + [laicode 395. Remove Certain Characters](laicode-395-Remove-Certain-Chars.md)
 + [laicode 281. Remove Spaces](281-Remove-Spaces.md)
++ [laicode 79. Remove Adjacent Repeated Characters I](laicode-79-Remove-Adjacent-Repeated-Chars-I.md)
