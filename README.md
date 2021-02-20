@@ -88,3 +88,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [692. Top K Frequent Words](692-Top-K-Frequent-Words.md)
 + [268. Missing Number](268-Missing-Number.md)
 + [laicode 652. Common Numbers Of Two Sorted Arrays](laicode-652-Common-Numbers-Of-Two-Sorted-Arrays.md)
++ [laicode 395. Remove Certain Characters](laicode-395-Remove-Certain-Chars.md)
