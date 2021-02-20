@@ -89,3 +89,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [268. Missing Number](268-Missing-Number.md)
 + [laicode 652. Common Numbers Of Two Sorted Arrays](laicode-652-Common-Numbers-Of-Two-Sorted-Arrays.md)
 + [laicode 395. Remove Certain Characters](laicode-395-Remove-Certain-Chars.md)
++ [laicode 281. Remove Spaces](281-Remove-Spaces.md)
