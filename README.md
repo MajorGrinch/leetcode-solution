@@ -92,3 +92,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 281. Remove Spaces](281-Remove-Spaces.md)
 + [laicode 79. Remove Adjacent Repeated Characters I](laicode-79-Remove-Adjacent-Repeated-Chars-I.md)
 + [82. Remove Adjacent Repeated Characters IV](82-Remove-Adjacent-Repeated-Characters-IV.md)
++ [85. Determine If One String Is Another's Substring](laicode-85-Determine-Substring.md)
