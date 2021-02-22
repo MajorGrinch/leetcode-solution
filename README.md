@@ -81,7 +81,7 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [78. Subsets](78-Subsets.md)
 + [22. Generate Parentheses](22-Generate-Parentheses.md)
 + [39. Combination Sum](39-Combination-Sum.md)
-+ [laicode 73. Combinations Of Coins](73-Combinations-Of-Coins.md)
++ [laicode 73. Combinations Of Coins](laicode-73-Combinations-Of-Coins.md)
 + [46. Permutations](46-Permutation.md)
 
 ## HashTable & String I
@@ -89,7 +89,7 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [268. Missing Number](268-Missing-Number.md)
 + [laicode 652. Common Numbers Of Two Sorted Arrays](laicode-652-Common-Numbers-Of-Two-Sorted-Arrays.md)
 + [laicode 395. Remove Certain Characters](laicode-395-Remove-Certain-Chars.md)
-+ [laicode 281. Remove Spaces](281-Remove-Spaces.md)
++ [laicode 281. Remove Spaces](laicode-281-Remove-Spaces.md)
 + [laicode 79. Remove Adjacent Repeated Characters I](laicode-79-Remove-Adjacent-Repeated-Chars-I.md)
 + [laicode 82. Remove Adjacent Repeated Characters IV](laicode-82-Remove-Adjacent-Repeated-Characters-IV.md)
 + [laicode 85. Determine If One String Is Another's Substring](laicode-85-Determine-Substring.md)
