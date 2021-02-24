@@ -98,3 +98,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [344. Reverse String](344-Reverse-String.md)
 + [186. Reverse Words in a String II](186-Reverse-Words-In-String-II.md)
 + [laicode 397. Right Shift By N Characters](laicode-397-Right-Shift-By-N.md)
++ [laicode 649. String Replace (basic)](laicode-649-String-Replace-Basic.md)
