@@ -1,4 +1,4 @@
-# Laicode. 175 Decompress String II
+# Laicode 175. Decompress String II
 
 给定压缩后的字符串，对其进行解压。比如`a1c0b2c4`变成`abbcccc`。
 

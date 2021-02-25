@@ -1,4 +1,4 @@
-# Laicode. Compress String II
+# Laicode 611. Compress String II
 
 对字符串进行压缩，连续的相同字符压缩成`字符+数字`的形式。比如`abbcccdeee" -> "a1b2c3d1e3"。
 
