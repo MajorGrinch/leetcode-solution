@@ -101,4 +101,5 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 649. String Replace (basic)](laicode-649-String-Replace-Basic.md)
 + [47. Permutations II](47-Permutations-II.md)
 + [laicode 197. ReOrder Array](laicode-197-ReOrder-Array.md)
-+ [laicode. 611. Compress String II](laicode-611-Compress-String-II.md)
++ [laicode 611. Compress String II](laicode-611-Compress-String-II.md)
++ [laicode 175. Decompress String II](laicode-175-Decompress-String-II.md)
