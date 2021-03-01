@@ -106,3 +106,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [3. Longest Substring Without Repeating Characters](3-Longest-Substring-Without-Repeating-Chars.md)
 + [438. Find All Anagrams in a String](438-Find-All-Anagrams.md)
 + [1004. Max Consecutive Ones III](1004-Max-Consecutive-Ones-III.md)
++ [231. Power of Two](231-Power-Of-Two.md)
