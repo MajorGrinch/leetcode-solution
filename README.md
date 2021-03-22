@@ -111,3 +111,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [231. Power of Two](231-Power-Of-Two.md)
 + [laicode 75. Number Of Different Bits](laicode-75-Num-Diff-Bits.md)
 + [laicode 77. All Unique Characters II](laicode-77-All-Unique-Chars-II.md)
++ [190. Reverse Bits](190-Reverse-Bits.md)
