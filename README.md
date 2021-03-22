@@ -106,5 +106,8 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [3. Longest Substring Without Repeating Characters](3-Longest-Substring-Without-Repeating-Chars.md)
 + [438. Find All Anagrams in a String](438-Find-All-Anagrams.md)
 + [1004. Max Consecutive Ones III](1004-Max-Consecutive-Ones-III.md)
+
+## Bit Operation
 + [231. Power of Two](231-Power-Of-Two.md)
 + [laicode 75. Number Of Different Bits](laicode-75-Num-Diff-Bits.md)
++ [laicode 77. All Unique Characters II](laicode-77-All-Unique-Chars-II.md)
