@@ -112,7 +112,8 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 75. Number Of Different Bits](laicode-75-Num-Diff-Bits.md)
 + [laicode 77. All Unique Characters II](laicode-77-All-Unique-Chars-II.md)
 + [190. Reverse Bits](190-Reverse-Bits.md)
-+ [78. Hexadecimal Representation](laicode-78-Hex-Representation.md)
++ [laicode 78. Hexadecimal Representation](laicode-78-Hex-Representation.md)
 
 ## Recursion II
 + [54. Spiral Matrix](54-Spiral-Matrix.md)
++ [laicode 233. N Queens](laicode-233-N-Queens.md)
