@@ -24,3 +24,27 @@ public class Solution {
   }
 }
 ```
+
+## Iterative Approach
+
+递归方法写起来简单，不过会有O(n)的调用栈占空间。用循环的方法可以有效避免调用栈，达到常量级空间。
+
+```java
+public class Solution {
+  public ListNode reverseInPairs(ListNode head) {
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+    ListNode prevTail = dummy;
+    while (head != null && head.next != null) {
+      ListNode currHead = head;
+      ListNode nextHead = head.next.next;
+      head = head.next.next;
+      prevTail.next = currHead.next;
+      currHead.next.next = currHead;
+      currHead.next = nextHead;
+      prevTail = prevTail.next.next;
+    }
+    return dummy.next;
+  }
+}
+```
