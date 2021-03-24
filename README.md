@@ -126,3 +126,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 ## Dynamic programming I
 + [509. Fibonacci Number](509-Fibonacci-Number.md)
 + [674. Longest Continuous Increasing Subsequence](674-LCIS.md)
++ [laicode 87. Max Product Of Cutting Rope](laicode-87-Max-Product-Of-Cutting-Rope.md)
