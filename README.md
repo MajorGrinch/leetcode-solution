@@ -125,3 +125,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 
 ## Dynamic programming I
 + [509. Fibonacci Number](509-Fibonacci-Number.md)
++ [674. Longest Continuous Increasing Subsequence](674-LCIS.md)
