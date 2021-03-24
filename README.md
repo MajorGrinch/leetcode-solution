@@ -119,3 +119,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 233. N Queens](laicode-233-N-Queens.md)
 + [laicode 35. Reverse Linked List In Pairs](laicode-35-Reverse-Linked-List-In-Pairs.md)
 + [408. Valid Word Abbreviation](408-Valid-Word-Abbr.md)
++ [laicode 646. Store Number Of Nodes In Left Subtree](laicode-646-Store-Number-Of-Nodes-In-Left-Subtree.md)
