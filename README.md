@@ -132,3 +132,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 ## Dynamic Programming II
 + [45. Jump Game II](45-Jump-Game-II.md)
 + [53. Maximum Subarray](53-Maximum-Subarray.md)
++ [139. Word Break](139-Word-Break.md)
