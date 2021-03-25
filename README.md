@@ -128,3 +128,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [674. Longest Continuous Increasing Subsequence](674-LCIS.md)
 + [laicode 87. Max Product Of Cutting Rope](laicode-87-Max-Product-Of-Cutting-Rope.md)
 + [55. Jump Game](55-Jump-Game.md)
++ [45. Jump Game II](45-Jump-Game-II.md)
