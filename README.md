@@ -134,3 +134,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [53. Maximum Subarray](53-Maximum-Subarray.md)
 + [139. Word Break](139-Word-Break.md)
 + [72. Edit Distance](72-Edit-Distance.md)
++ [221. Maximal Square](221-Maximal-Square.md)
