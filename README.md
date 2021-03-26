@@ -133,3 +133,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [45. Jump Game II](45-Jump-Game-II.md)
 + [53. Maximum Subarray](53-Maximum-Subarray.md)
 + [139. Word Break](139-Word-Break.md)
++ [72. Edit Distance](72-Edit-Distance.md)
