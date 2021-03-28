@@ -135,3 +135,7 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [139. Word Break](139-Word-Break.md)
 + [72. Edit Distance](72-Edit-Distance.md)
 + [221. Maximal Square](221-Maximal-Square.md)
+
+## Dynamic Programming III
++ [laicode 103. Longest Consecutive 1s](laicode-103-Longest-Consecutive-Ones.md)
++ [laicode 104. Longest Cross Of 1s](104-Longest-Cross-Of-1s.md)
