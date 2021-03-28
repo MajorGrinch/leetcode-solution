@@ -141,3 +141,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 104. Longest Cross Of 1s](laicode-104-Longest-Cross-Of-1s.md)
 + [1139. Largest 1-Bordered Square](1139-Largest-1-Bordered-Square.md)
 + [laicode 105. Largest X Of 1s](laicode-105-Largest-X-Of-Ones.md)
++ [laicode 638. Largest Square Of Matches](laicode-638-Largest-Square-Of-Matches.md)
