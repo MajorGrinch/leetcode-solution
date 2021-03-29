@@ -146,3 +146,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 
 ## Probability, Sampling & Randomization
 + [laicode 108. Perfect Shuffle](laicode-108-Perfect-Shuffle.md)
++ [laicode 109. Reservoir Sampling](laicode-109-Reservoir-Sampling.md)
