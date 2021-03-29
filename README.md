@@ -142,3 +142,4 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [1139. Largest 1-Bordered Square](1139-Largest-1-Bordered-Square.md)
 + [laicode 105. Largest X Of 1s](laicode-105-Largest-X-Of-Ones.md)
 + [laicode 638. Largest Square Of Matches](laicode-638-Largest-Square-Of-Matches.md)
++ [laicode 106. Largest SubMatrix Sum](laicode-106-Largest-SubMatrix-Sum.md)
