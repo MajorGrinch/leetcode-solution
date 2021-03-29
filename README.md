@@ -143,3 +143,6 @@ Detailed leetcode solutions. Dedicated to my Jiujiu.
 + [laicode 105. Largest X Of 1s](laicode-105-Largest-X-Of-Ones.md)
 + [laicode 638. Largest Square Of Matches](laicode-638-Largest-Square-Of-Matches.md)
 + [laicode 106. Largest SubMatrix Sum](laicode-106-Largest-SubMatrix-Sum.md)
+
+## Probability, Sampling & Randomization
++ [laicode 108. Perfect Shuffle](laicode-108-Perfect-Shuffle.md)
