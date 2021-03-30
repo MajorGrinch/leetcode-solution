@@ -1,7 +1,5 @@
 leetcode题解。
 
-Detailed leetcode solutions. Dedicated to my Jiujiu.
-
 ## Binary Search
 
 + [34. Find First and Last Position of Element in Sorted Array](34-Find-First-and-Last-Position.md)
