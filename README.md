@@ -148,3 +148,4 @@ leetcode题解。
 + [laicode 111. Random7 Using Random5](laicode-111-Random7-Using-Random5.md)
 + [295. Find Median from Data Stream](295-Find-Median-from-Data-Stream.md)
 + [laicode 114. 95 Percentile](laicode-114-95-Percentile.md)
++ [laicode 110. Generalized Reservoir Sampling](laicode-110-Generalized-Reservoir-Sampling.md)
