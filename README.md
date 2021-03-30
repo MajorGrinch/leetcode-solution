@@ -146,3 +146,4 @@ leetcode题解。
 + [laicode 108. Perfect Shuffle](laicode-108-Perfect-Shuffle.md)
 + [laicode 109. Reservoir Sampling](laicode-109-Reservoir-Sampling.md)
 + [laicode 111. Random7 Using Random5](laicode-111-Random7-Using-Random5.md)
++ [295. Find Median from Data Stream](295-Find-Median-from-Data-Stream.md)
