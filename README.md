@@ -150,3 +150,7 @@ leetcode题解。
 + [laicode 114. 95 Percentile](laicode-114-95-Percentile.md)
 + [laicode 110. Generalized Reservoir Sampling](laicode-110-Generalized-Reservoir-Sampling.md)
 + [laicode 112. Random1000 Using Random5](laicode-112-Random1000-Using-Random5.md)
+
+## Warm up for Cross-training I
++ [26. Remove Duplicates from Sorted Array](26-Remove-Duplicates-From-Sorted-Array.md)
++ 
