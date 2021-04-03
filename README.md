@@ -162,3 +162,4 @@ leetcode题解。
 + [1650. Lowest Common Ancestor of a Binary Tree III](1650-LCA-of-Binary-Tree-III.md)
 + [laicode 118. Array Deduplication IV](laicode-118-Array-Dedup-IV.md)
 + [laicode 119. Largest And Smallest](laicode-119-Largest-And-Smallest.md)
++ [laicode 120. Largest And Second Largest](laicode-120-Largest-And-Second-Largest.md)
