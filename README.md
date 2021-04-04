@@ -151,7 +151,7 @@ leetcode题解。
 + [laicode 110. Generalized Reservoir Sampling](laicode-110-Generalized-Reservoir-Sampling.md)
 + [laicode 112. Random1000 Using Random5](laicode-112-Random1000-Using-Random5.md)
 
-## Warm up for Cross-training I
+## Cross-training I
 + [26. Remove Duplicates from Sorted Array](26-Remove-Duplicates-From-Sorted-Array.md)
 + [80. Remove Duplicates from Sorted Array II](80-Remove-Dup-From-Sorted-Array-II.md)
 + [laicode 117. Array Deduplication III](laicode-117-Array-Dedup-III.md)
@@ -167,3 +167,6 @@ leetcode题解。
 + [1676. Lowest Common Ancestor of a Binary Tree IV](1676-LCA-of-BT-IV.md)
 + [laicode 647. Lowest Common Ancestor V](laicode-647-LCA-V.md)
 + [laicode 648. Lowest Common Ancestor VI](laicode-648-LCA-VI.md)
+
+## Cross-training II
++ [138. Copy List with Random Pointer](138-Copy-List-with-Random-Pointer.md)
