@@ -174,3 +174,4 @@ leetcode题解。
 + [270. Closest Binary Search Tree Value](270-Closest-BST-Value.md)
 + [laicode 136. Largest Number Smaller In Binary Search Tree](laicode-136-Largest-Number-Smaller-In-BST.md)
 + [1. Two Sum](1-Two-Sum.md)
++ [laicode 181. 2 Sum All Pair I](laicode-181-2-Sum-All-Pair-I.md)
