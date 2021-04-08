@@ -176,3 +176,4 @@ leetcode题解。
 + [1. Two Sum](1-Two-Sum.md)
 + [laicode 181. 2 Sum All Pair I](laicode-181-2-Sum-All-Pair-I.md)
 + [laicode 182. 2 Sum All Pair II ](laicode-182-2-Sum-All-Pair-II.md)
++ [laicode 276. Get Count Array](laicode-276-Get-Count-Array.md)
