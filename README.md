@@ -179,3 +179,6 @@ leetcode题解。
 + [laicode 276. Get Count Array](laicode-276-Get-Count-Array.md)
 + [15. 3Sum](15-3-Sum.md)
 + [laicode 188. 4 Sum](laicode-188-4-Sum.md)
+
+## Warm-up Exercises for Recursion III
++ [laicode 138. Maximum Path Sum Binary Tree I](laicode-138-Maximum-Path-Sum-Binary-Tree-I.md)
