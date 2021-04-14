@@ -192,3 +192,4 @@ leetcode题解。
 + [laicode 639. Max Path Sum From Leaf To Root](laicode-639-Max-Path-Sum-From-Leaf-To-Root.md)
 + [laicode 141. Binary Tree Path Sum To Target III](laicode-141-Binary-Tree-Path-Sum-To-Target-III.md)
 + [laicode 140. Maximum Path Sum Binary Tree III](laicode-140-Max-Path-Sum-Binary-Tree-III.md)
++ [114. Flatten Binary Tree to Linked List](114-Flatten-Binary-Tree-to-Linked-List.md)
