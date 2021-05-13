@@ -208,3 +208,6 @@ leetcode题解。
 + [laicode 264. Keep Distance For Identical Elements](laicode-264-Keep-Distance.md)
 + [17. Letter Combinations of a Phone Number](17-Letter-Comb-Of-Phone-Number.md)
 + [93. Restore IP Addresses](93-Restore-IP-Addresses.md)
+
+## Cross-training III
++ [laicode 650. Common Numbers Of Two Arrays I(Array version)](laicode-650-Common-Numbers-Of-Two-Arrays-I.md)

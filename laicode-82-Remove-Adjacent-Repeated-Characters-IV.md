@@ -6,6 +6,8 @@
 + 如果slow > 0 且 fast和slow - 1位置的字符一样的话，说明`fast`及其相邻的重复字符需要和`slow - 1`需要相消。
 + 如果slow为0，或者fast和slow - 1位置不一样，就老老实实把fast加入已经处理好的子串，slow后移。
 
+相当于如果我们每个字符段都是至少把它首个字符压入[0, slow)，如果这个字符段只有一个字符，那么就成功压入。如果这个字符段不止一个字符，那么下一步会跳过后面所有的并且弹出一开始压入的首个字符。
+
 Time complexity: O(n). Why? Because we only process each character once.
 
 Space complexity: O(n), because of the extra char array.
