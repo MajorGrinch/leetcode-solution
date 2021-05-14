@@ -217,3 +217,4 @@ leetcode题解。
 + [149. Max Points on a Line](149-Max-Points-On-A-Line.md)
 + [23. Merge k Sorted Lists](23-Merge-K-Sorted-Lists.md)
 + [laicode 133. Merge K Sorted Array](laicode-133-Merge-K-Sorted-Array.md)
++ [laicode 171. Common Elements In Three Sorted Array](171-Common-Elements-In-Three-Sorted-Array.md)
