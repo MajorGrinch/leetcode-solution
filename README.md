@@ -220,3 +220,6 @@ leetcode题解。
 + [laicode 171. Common Elements In Three Sorted Array](171-Common-Elements-In-Three-Sorted-Array.md)
 + [laicode 644. Common Elements In K Sorted Lists](laicode-644-Common-Elements-In-K-Sorted-Lists.md)
 + [407. Trapping Rain Water II](407-Trapping-Rain-Water-II.md)
+
+## Warm-up for Graph Search Algorithm III
++ [laicode 27. Kth Smallest Sum In Two Sorted Arrays](laicode-27-Kth-Smallest-Sum-In-Two-Sorted-Arrays.md)
