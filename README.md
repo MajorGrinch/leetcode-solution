@@ -223,3 +223,7 @@ leetcode题解。
 
 ## Warm-up for Graph Search Algorithm III
 + [laicode 27. Kth Smallest Sum In Two Sorted Arrays](laicode-27-Kth-Smallest-Sum-In-Two-Sorted-Arrays.md)
++ [373. Find K Pairs with Smallest Sums](373-Find-K-Paris-With-Smallest-Sums.md)
+
+## Graph Search Algorithms III
++ [laicode 191. Largest Product Of Length](laicode-191-Largest-Product-Of-Length.md)
