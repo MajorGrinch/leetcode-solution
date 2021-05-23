@@ -230,3 +230,4 @@ leetcode题解。
 + [laicode 193. Kth Smallest With Only 3, 5, 7 As Factors](laicode-193-Kth-Smallest-With-Only-3-5-7-As-Factors.md)
 + [laicode 194. Kth Closest Point To <0,0,0>](laicode-194-Kth-Closest-Point-To-000.md)
 + [laicode 681. Seven Puzzle](laicode-681-Seven-Puzzle.md)
++ [773. Sliding Puzzle](773-Sliding-Puzzle.md)
