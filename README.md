@@ -232,3 +232,4 @@ leetcode题解。
 + [laicode 681. Seven Puzzle](laicode-681-Seven-Puzzle.md)
 + [773. Sliding Puzzle](773-Sliding-Puzzle.md)
 + [127. Word Ladder](127-Word-Ladder.md)
++ [126. Word Ladder II](126-Word-Ladder-II.md)
