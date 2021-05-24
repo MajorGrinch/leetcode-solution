@@ -236,3 +236,4 @@ leetcode题解。
 + [laicode. 195. Place To Put The Chair I](laicode-195-Place-To-Put-Chair-I.md)
 + [207. Course Schedule](207-Course-Schedule.md)
 + [210. Course Schedule II](210-Course-Schedule-II.md)
++ [269. Alien Dictionary](269-Alien-Dictionary.md)
