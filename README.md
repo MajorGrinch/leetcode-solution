@@ -242,3 +242,4 @@ leetcode题解。
 + [239. Sliding Window Maximum](239-Sliding-Window-Maximum.md)
 + [146. LRU Cache](146-LRU-Cache.md)
 + [169. Majority Element](169-Majority-Element.md)
++ [laicode 207. Majority Number II](laicode-207-Majority-Number-II.md)
