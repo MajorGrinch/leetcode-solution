@@ -245,3 +245,4 @@ leetcode题解。
 + [laicode 207. Majority Number II](laicode-207-Majority-Number-II.md)
 + [laicode 208. Majority Number III](laicode-208-Majority-Number-III.md)
 + [laicode 202. Kth Smallest In Two Sorted Arrays](laicode-202-Kth-Smallest-In-Two-Sorted-Arrays.md)
++ [4. Median of Two Sorted Arrays](4-Median-Of-Two-Sorted-Arrays.md)
