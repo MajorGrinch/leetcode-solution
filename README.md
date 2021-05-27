@@ -244,3 +244,4 @@ leetcode题解。
 + [169. Majority Element](169-Majority-Element.md)
 + [laicode 207. Majority Number II](laicode-207-Majority-Number-II.md)
 + [laicode 208. Majority Number III](laicode-208-Majority-Number-III.md)
++ [laicode 202. Kth Smallest In Two Sorted Arrays](laicode-202-Kth-Smallest-In-Two-Sorted-Arrays.md)
