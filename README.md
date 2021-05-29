@@ -247,3 +247,4 @@ leetcode题解。
 + [laicode 202. Kth Smallest In Two Sorted Arrays](laicode-202-Kth-Smallest-In-Two-Sorted-Arrays.md)
 + [4. Median of Two Sorted Arrays](4-Median-Of-Two-Sorted-Arrays.md)
 + [laicode 288. First Non-Repeating Character In Stream](laicode-288-First-Non-Repeating-Character-In-Stream.md)
++ [1429. First Unique Number](1429-First-Unique-Number.md)
