@@ -251,3 +251,4 @@ leetcode题解。
 
 ## Dynamic Programming IV
 + [300. Longest Increasing Subsequence](300-Longest-Increasing-Subsequence.md)
++ [682. Longest Ascending Subsequence II](laicode-682-Longest-Ascending-Subsequence-II.md)
