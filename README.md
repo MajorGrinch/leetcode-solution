@@ -253,3 +253,4 @@ leetcode题解。
 + [300. Longest Increasing Subsequence](300-Longest-Increasing-Subsequence.md)
 + [682. Longest Ascending Subsequence II](laicode-682-Longest-Ascending-Subsequence-II.md)
 + [491. Increasing Subsequences](491-Increasing-Subsequence.md)
++ [laicode 683. Count Ascending Subsequence](laicode-683-Count-Ascending-Subsequence.md)
