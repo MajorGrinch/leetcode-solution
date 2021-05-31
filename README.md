@@ -256,3 +256,4 @@ leetcode题解。
 + [laicode 683. Count Ascending Subsequence](laicode-683-Count-Ascending-Subsequence.md)
 + [laicode 217. Largest Set Of Points With Positive Slope](laicode-217-Largest-Set-Of-Points-With-Positive-Slope.md)
 + [laicode 176. Longest Common Substring](laicode-176-Longest-Common-Substring.md)
++ [1143. Longest Common Subsequence](1143-Longest-Common-Subsequence.md)
