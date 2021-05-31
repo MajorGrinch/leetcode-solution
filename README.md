@@ -257,3 +257,4 @@ leetcode题解。
 + [laicode 217. Largest Set Of Points With Positive Slope](laicode-217-Largest-Set-Of-Points-With-Positive-Slope.md)
 + [laicode 176. Longest Common Substring](laicode-176-Longest-Common-Substring.md)
 + [1143. Longest Common Subsequence](1143-Longest-Common-Subsequence.md)
++ [1547. Minimum Cost to Cut a Stick](1547-Minimum-Cost-To-Cut-Stick.md)
