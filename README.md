@@ -263,3 +263,6 @@ leetcode题解。
 ## Trie
 + [79. Word Search](79-Word-Search.md)
 + [212. Word Search II](212-Word-Search-II.md)
+
+## Cross Training V
++ [150. Evaluate Reverse Polish Notation](150-Evaluate-Reverse-Polish-Notation.md)
