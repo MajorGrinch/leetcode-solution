@@ -259,3 +259,7 @@ leetcode题解。
 + [1143. Longest Common Subsequence](1143-Longest-Common-Subsequence.md)
 + [1547. Minimum Cost to Cut a Stick](1547-Minimum-Cost-To-Cut-Stick.md)
 + [laicode 657. Can I Win II](laicode-657-Can-I-Win-II.md)
+
+## Trie
++ [79. Word Search](79-Word-Search.md)
++ [212. Word Search II](212-Word-Search-II.md)
