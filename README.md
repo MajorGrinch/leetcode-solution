@@ -269,3 +269,4 @@ leetcode题解。
 + [33. Search in Rotated Sorted Array](33-Search-in-Rotated-Sorted-Array.md)
 + [81. Search in Rotated Sorted Array II](81-Search-In-Rotated-Sorted-Array-II.md)
 + [laicode 22. Search In Shifted Sorted Array II](laicode-22-Search-In-Shifted-Sorted-Array-II.md)
++ [153. Find Minimum in Rotated Sorted Array](153-Find-Min-Rotated-Sorted-Array.md)
