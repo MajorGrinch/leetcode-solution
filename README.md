@@ -274,3 +274,4 @@ leetcode题解。
 + [147. Insertion Sort List](147-Insertion-Sort-List.md)
 + [laicode 28. Selection Sort Linked List](laicode-28-Selection-Sort-Linked-List.md)
 + [laicode 30. Quick Sort Linked List](laicode-30-Quick-Sort-Linked-List.md)
++ [laicode 33. Number Of Nodes](laicode-33-Number-Of-Nodes.md)
