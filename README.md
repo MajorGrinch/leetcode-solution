@@ -277,3 +277,4 @@ leetcode题解。
 + [laicode 33. Number Of Nodes](laicode-33-Number-Of-Nodes.md)
 + [laicode 49. Identical Binary Tree](laicode-49-Identical-Binary-Tree.md)
 + [laicode 69. Missing Number II](laicode-69-Missing-Number-II.md)
++ [laicode 76. All Unique Characters I](laicode-76-All-Unique-Char-I.md)
