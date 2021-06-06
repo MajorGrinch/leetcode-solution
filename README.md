@@ -276,3 +276,4 @@ leetcode题解。
 + [laicode 30. Quick Sort Linked List](laicode-30-Quick-Sort-Linked-List.md)
 + [laicode 33. Number Of Nodes](laicode-33-Number-Of-Nodes.md)
 + [laicode 49. Identical Binary Tree](laicode-49-Identical-Binary-Tree.md)
++ [laicode 69. Missing Number II](laicode-69-Missing-Number-II.md)
