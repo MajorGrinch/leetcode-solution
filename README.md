@@ -273,3 +273,4 @@ leetcode题解。
 + [154. Find Minimum in Rotated Sorted Array II](154-Find-Min-Rotated-Sorted-Array-II.md)
 + [147. Insertion Sort List](147-Insertion-Sort-List.md)
 + [laicode 28. Selection Sort Linked List](laicode-28-Selection-Sort-Linked-List.md)
++ [laicode 30. Quick Sort Linked List](laicode-30-Quick-Sort-Linked-List.md)
