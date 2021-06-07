@@ -280,3 +280,4 @@ leetcode题解。
 + [laicode 76. All Unique Characters I](laicode-76-All-Unique-Char-I.md)
 + [laicode 80. Remove Adjacent Repeated Characters II](laicode-80-Remove-Adjacent-Repeated-Char-II.md)
 + [laicode 81. Remove Adjacent Repeated Characters III](laicode-81-Remove-Adjacent-Repeated-Char-III.md)
++ [laicode 83. Encode Space](laicode-83-Encode-Space.md)
