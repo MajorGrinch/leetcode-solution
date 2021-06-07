@@ -31,3 +31,23 @@ public class Solution {
   }
 }
 ```
+
+受[laicode 81. Remove Adjacent Repeated Characters III](laicode-81-Remove-Adjacent-Repeated-Char-III.md)启发，想出个通用的解法。时空复杂度不变。
+
+```java
+public class Solution {
+  public String deDup(String input) {
+    if (input == null || input.length() <= 1) {
+      return input;
+    }
+    char[] sc = input.toCharArray();
+    int slow = 0, fast = 0;
+    while (fast < sc.length) {
+      int begin = fast;
+      while (fast < sc.length && sc[fast] == sc[begin]) fast++;
+      sc[slow++] = sc[begin];
+    }
+    return new String(sc, 0, slow);
+  }
+}
+```
