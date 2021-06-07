@@ -278,3 +278,4 @@ leetcode题解。
 + [laicode 49. Identical Binary Tree](laicode-49-Identical-Binary-Tree.md)
 + [laicode 69. Missing Number II](laicode-69-Missing-Number-II.md)
 + [laicode 76. All Unique Characters I](laicode-76-All-Unique-Char-I.md)
++ [laicode 80. Remove Adjacent Repeated Characters II](laicode-80-Remove-Adjacent-Repeated-Char-II.md)
