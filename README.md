@@ -282,3 +282,4 @@ leetcode题解。
 + [laicode 81. Remove Adjacent Repeated Characters III](laicode-81-Remove-Adjacent-Repeated-Char-III.md)
 + [laicode 83. Encode Space](laicode-83-Encode-Space.md)
 + [laicode 90. Array Hopper III](laicode-90-Array-Hopper-III.md)
++ [laicode 91. Array Hopper IV](laicode-91-Array-Hopper-IV.md)
