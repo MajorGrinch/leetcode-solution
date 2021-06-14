@@ -289,3 +289,4 @@ leetcode题解。
 + [123. Best Time to Buy and Sell Stock III](123-Buy-Sell-Stock-III.md)
 + [laicode 96. Merge Stones](laicode-96-Merge-Stones.md)
 + [152. Maximum Product Subarray](152-Max-Product-Subarray.md)
++ [85. Maximal Rectangle](85-Max-Rec.md)
