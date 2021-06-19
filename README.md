@@ -294,3 +294,4 @@ leetcode题解。
 + [laicode 130. Deep Copy Skip List](laicode-130-Deep-Copy-Skip-List.md)
 + [543. Diameter of Binary Tree](543-Diameter-Binary-Tree.md)
 + [laicode 142. Binary Tree Diameter](laicode-142-Binary-Tree-Diameter.md)
++ [131. Palindrome Partitioning](131-Palindrome-Partitioning.md)
