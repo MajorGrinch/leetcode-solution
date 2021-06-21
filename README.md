@@ -296,3 +296,4 @@ leetcode题解。
 + [laicode 142. Binary Tree Diameter](laicode-142-Binary-Tree-Diameter.md)
 + [131. Palindrome Partitioning](131-Palindrome-Partitioning.md)
 + [132. Palindrome Partitioning II](132-Palindrome-Partitioning-II.md)
++ [99. Recover Binary Search Tree](99-Recover-BST.md)
