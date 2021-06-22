@@ -297,3 +297,4 @@ leetcode题解。
 + [131. Palindrome Partitioning](131-Palindrome-Partitioning.md)
 + [132. Palindrome Partitioning II](132-Palindrome-Partitioning-II.md)
 + [99. Recover Binary Search Tree](99-Recover-BST.md)
++ [96. Unique Binary Search Trees](96-Unique-BSTs.md)
