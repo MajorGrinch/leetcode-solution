@@ -33,3 +33,29 @@ class Solution {
     }
 }
 ```
+
+2025:
+
+```java
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        if (target < letters[0])
+            return letters[0];
+        if (letters[letters.length - 1] <= target)
+            return letters[0];
+
+        int l = 0;
+        int r = letters.length - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (letters[mid] <= target) {
+                l = mid + 1;
+            } else {
+                // targett < letter[mid]
+                r = mid;
+            }
+        }
+        return letters[l];
+    }
+}
+```

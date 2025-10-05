@@ -18,6 +18,41 @@ Time complexity: O(logN)
 
 Space complexity: O(1)
 
+2025 update:
+
+在first occurrence 和 last occurrence的实现里，怎么写if else？这里有个简单的技巧。
+
+以first occurrence为例，
++ `nums[mid] == target` -> `r = mid`
++ `nums[mid] < target` -> `l = mid + 1`
++ `target < nums[mid]` -> `r = mid - 1`
+
+所以，第一个和第三个可以合并为
+```java
+if(target <= nums[i]) {
+  r = mid;
+} else {
+  l = mid + 1;
+}
+```
+
+同理，last occurrence时候，
++ `nums[mid] == target` -> `l = mid`
++ `nums[mid] < target` -> `l = mid + 1`
++ `target < nums[mid]` -> `r = mid - 1`
+
+所以可以合并为
+```java
+if(nums[mid] <= target) {
+  l = mid;
+} else {
+  r = mid - 1;
+}
+```
+但是因为这个有`l = mid`，所以我们需要`while(r - l > 1)`来避免死循环。
+
+AC code:
+
 ```java
 class Solution {
     private final int[] noAns = {-1, -1};
@@ -85,6 +120,52 @@ class Solution {
             }
         }
         return -1;
+    }
+}
+```
+
+2025 code:
+
+```java
+class Solution {
+    public int[] searchRange(int[] nums, int target) {
+        if(nums == null || nums.length == 0) return new int[]{-1, -1};
+        if(target < nums[0] || nums[nums.length - 1] < target) return new int[]{-1, -1};
+
+        int idx1 = firstOccur(nums, target);
+        return idx1 == -1 ? new int[]{-1, -1} : new int[]{idx1, lastOccur(nums, target)};
+    }
+
+    private int firstOccur(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while(l < r) {
+            int mid = l + (r-l) / 2;
+            if(nums[mid] < target) {
+                l = mid + 1;
+            } else {
+                // target <= nums[mid]
+                r = mid;
+            }
+        }
+        return nums[l] == target ? l : -1;
+    }
+
+    /**
+    Gurantee occurrence
+     */
+    private int lastOccur(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while(r - l > 1) {
+            int mid = l + (r - l)/2;
+            if(nums[mid] <= target) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return nums[r] == target ? r : l;
     }
 }
 ```

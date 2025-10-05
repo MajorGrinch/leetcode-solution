@@ -10,6 +10,8 @@
 
 最后循环终止，l == r，就是first bad version。
 
+这题不用担心死循环，因为mid为好，l = mid + 1
+
 Time complexity: O(logN)
 
 Space complexity: O(1)
@@ -20,16 +22,17 @@ Space complexity: O(1)
 
 public class Solution extends VersionControl {
     public int firstBadVersion(int n) {
-        int l = 0, r = n;
-        while(l < r){
-            int mid = l + (r-l >> 1);
-            if(isBadVersion(mid)){
+        int l = 0;
+        int r = n;
+        while (r - l > 1) {
+            int mid = l + (r - l) / 2;
+            if (isBadVersion(mid)) {
                 r = mid;
-            }else{
+            } else {
                 l = mid + 1;
             }
         }
-        return l;
+        return isBadVersion(l) ? l : r;
     }
 }
 ```

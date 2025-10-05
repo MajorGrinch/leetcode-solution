@@ -60,3 +60,58 @@ class Solution {
     }
 }
 ```
+
+2025 update:
+```java
+class Solution {
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        if (arr == null || arr.length == 0 || k == 0) {
+            return new ArrayList<>();
+        }
+        List<Integer> res = new ArrayList<>();
+
+        if (arr.length <= k) {
+            for (int i = 0; i < arr.length; i++)
+                res.add(arr[i]);
+            return res;
+        }
+
+        if (x <= arr[0]) {
+            for (int i = 0; i < k; i++)
+                res.add(arr[i]);
+        } else if (arr[arr.length - 1] <= x) {
+            for (int i = arr.length - k; i < arr.length; i++)
+                res.add(arr[i]);
+        } else {
+            int pos = firstGE(arr, x);
+            int low = Math.max(0, pos - k);
+            int high = Math.min(arr.length - 1, pos + k - 1);
+            while (high - low > k - 1) {
+                if (Math.abs(arr[low] - x) <= Math.abs(arr[high] - x)) {
+                    high--;
+                } else {
+                    low++;
+                }
+            }
+            for (int i = low; i <= high; i++)
+                res.add(arr[i]);
+        }
+        return res;
+    }
+
+    private int firstGE(int[] arr, int x) {
+        int l = 0;
+        int r = arr.length - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (x <= arr[mid]) {
+                r = mid;
+            } else {
+                // nums[mid] < target
+                l = mid + 1;
+            }
+        }
+        return l;
+    }
+}
+```

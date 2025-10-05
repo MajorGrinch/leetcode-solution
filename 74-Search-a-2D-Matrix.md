@@ -4,7 +4,7 @@
 
 还是二分搜索，分两步走。
 
-第一步先找到哪一行有可能存在target，这里我们预设的Loop invariant是target一定出现在[l, r]这些行里。如果`matrix[mid][0] <= target && target <= matrix[mid][n-1]` 的话，那么target只可能在这一行，直接break。如果matrix[mid][0] > target，那么target只有可能在[l, mid - 1]这些行里。如果matrix[mid][n - 1] > target，那么target只可能在[mid + 1, r]这些行里。这样就可以维持loop invariant。
+第一步先找到哪一行有可能存在target，这里我们预设的Loop invariant是target一定出现在[l, r]这些行里。如果`matrix[mid][0] <= target && target <= matrix[mid][n-1]` 的话，那么target就在这一行，直接进去再二分找。如果matrix[mid][0] > target，那么target只有可能在[l, mid - 1]这些行里。如果matrix[mid][n - 1] > target，那么target只可能在[mid + 1, r]这些行里。这样就可以维持loop invariant。
 
 第二步在行内找target，loop invariant是target一定出现在[l, r]这个区间里。通过操作维护循环不变量，最后返回。
 
@@ -17,58 +17,60 @@ Space complexity: O(1)
 ```java
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
-        if(matrix == null || matrix.length == 0 || matrix[0].length == 0){
-            return false;
-        }
-        int m = matrix.length, n = matrix[0].length;
-        int l = 0, r = m - 1;
-        int targetRow = -1;
-        while(l <= r){
-            int mid = l + (r-l >> 1);
-            if(matrix[mid][0] <= target && target <= matrix[mid][n - 1]){
-                targetRow = mid;
-                break;
-            }else if(matrix[mid][0] > target){
+        int l = 0;
+        int r = matrix.length - 1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            int[] row = matrix[mid];
+            if (inside(row, target)) {
+                return binSearch2(row, target);
+            } else if (target < row[0]) {
                 r = mid - 1;
-            }else{
+            } else {
                 l = mid + 1;
             }
         }
-        if(targetRow == -1){
-            return false;
-        }else {
-            return binSearch(matrix[targetRow], target);
-        }
+        return false;
     }
 
-    private boolean binSearch(int[] nums, int target){
-        int l = 0, r = nums.length - 1;
-        while(l < r){
-            int mid = l + (r-l>>1);
-            if(nums[mid] == target){
-                return true;
-            }else if(nums[mid] < target){
-                l = mid + 1;
-            }else{
-                r = mid - 1;
-            }
-        }
-        return nums[l] == target;
+    private boolean inside(int[] nums, int target) {
+        return nums[0] <= target && target <= nums[nums.length - 1];
     }
 
-    private boolean binSearch2(int[] nums, int target){
-        int l = 0, r = nums.length - 1;
-        while(l <= r){
-            int mid = l + (r-l>>1);
-            if(nums[mid] == target){
+    private boolean binSearch(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            int val = nums[mid];
+            if (val == target) {
                 return true;
-            }else if(nums[mid] < target){
+            } else if (val < target) {
                 l = mid + 1;
-            }else{
+            } else {
+                // val > target
                 r = mid - 1;
             }
         }
         return false;
+    }
+
+    private boolean binSearch2(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            int val = nums[mid];
+            if (val == target) {
+                return true;
+            } else if (val < target) {
+                l = mid + 1;
+            } else {
+                // val > target
+                r = mid - 1;
+            }
+        }
+        return nums[l] == target;
     }
 }
 ```

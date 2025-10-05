@@ -11,27 +11,36 @@ Time complexity: O(max(M, N)), where M and N are the length respectively
 Space complexity: O(max(M, N))
 
 ```java
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode res = new ListNode(0);
-        ListNode p = res;
         int carry = 0;
-        while(l1 != null || l2 != null){
-            int d1 = 0, d2 = 0;
-            if(l1 != null){
-                d1 = l1.val;
+        ListNode res = new ListNode(-1);
+        ListNode p = res;
+        while (l1 != null || l2 != null) {
+            int curr = carry;
+            if (l1 != null) {
+                curr += l1.val;
                 l1 = l1.next;
             }
-            if(l2 != null){
-                d2 = l2.val;
+            if (l2 != null) {
+                curr += l2.val;
                 l2 = l2.next;
             }
-            int sum = d1 + d2 + carry;
-            p.next = new ListNode(sum % 10);
-            carry = sum / 10;
+            p.next = new ListNode(curr % 10);
             p = p.next;
+            carry = curr / 10;
         }
-        if(carry != 0){
+        if (carry > 0) {
             p.next = new ListNode(carry);
         }
         return res.next;
