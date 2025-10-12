@@ -69,3 +69,28 @@ class Solution {
     }
 }
 ```
+
+2025 update:
+```java
+class Solution {
+    public List<Integer> inorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Deque<TreeNode> stack = new ArrayDeque<>();
+        TreeNode curr = root;
+        while (curr != null || !stack.isEmpty()) {
+            if (curr != null) {
+                stack.push(curr);
+                curr = curr.left;
+            } else {
+                curr = stack.pop();
+                res.add(curr.val);
+                curr = curr.right;
+            }
+        }
+        return res;
+    }
+}
+```

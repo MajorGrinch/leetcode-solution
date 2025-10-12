@@ -32,6 +32,27 @@ class Solution {
 }
 ```
 
+2025 new approach:
+
+```java
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        if (head == null || head.next == null)
+            return head;
+
+        ListNode newHead = new ListNode(-1);
+        ListNode p = head;
+        while (p != null) {
+            ListNode next = p.next;
+            p.next = newHead.next;
+            newHead.next = p;
+            p = next;
+        }
+        return newHead.next;
+    }
+}
+```
+
 ## Recursive Method
 
 

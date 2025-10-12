@@ -52,3 +52,45 @@ class MyQueue {
     }
 }
 ```
+
+2025 update:
+```java
+class MyQueue {
+
+    private Deque<Integer> s1;
+    private Deque<Integer> s2;
+
+    public MyQueue() {
+        s1 = new ArrayDeque<>();
+        s2 = new ArrayDeque<>();
+    }
+
+    public void push(int x) {
+        s1.push(x);
+    }
+
+    public int pop() {
+        if (s2.isEmpty()) {
+            feedS2();
+        }
+        return s2.pop();
+    }
+
+    public int peek() {
+        if (s2.isEmpty()) {
+            feedS2();
+        }
+        return s2.peek();
+    }
+
+    public boolean empty() {
+        return s1.isEmpty() && s2.isEmpty();
+    }
+
+    private void feedS2() {
+        while (!s1.isEmpty()) {
+            s2.push(s1.pop());
+        }
+    }
+}
+```

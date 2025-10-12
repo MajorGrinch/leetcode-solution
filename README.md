@@ -10,6 +10,7 @@ leetcode题解。
 + [702. Search in a Sorted Array of Unknown Size](702-Search-Sorted-Array-Unknown-Size.md)
 + [704. Binary Search](704-Binary-Search.md)
 + [744. Find Smallest Letter Greater Than Target](744-Find-Smallest-Letter-Greater-Than-Target.md)
++ [laicode 17. Closest in Sorted Array](laicode-17-closest-in-sorted-array.md)
 + [Binary Search Summary](Binary-Search.md)
 
 ## Divide & Concur

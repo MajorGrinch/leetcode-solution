@@ -79,3 +79,77 @@ public class Solution {
     }
 }
 ```
+
+2025 update:
+
+```java
+public class Solution {
+  Deque<Integer> left;
+  Deque<Integer> right;
+  Deque<Integer> buffer;
+  public Solution() {
+    // Write your solution here.
+    left = new ArrayDeque<>();
+    right = new ArrayDeque<>();
+    buffer = new ArrayDeque<>();
+  }
+  
+  public void offerFirst(int element) {
+    left.push(element);
+  }
+  
+  public void offerLast(int element) {
+    right.push(element);
+  }
+  
+  public Integer pollFirst() {
+    if(isEmpty()) return null;
+
+    equalize(right, left);
+    return left.pop();
+  }
+  
+  public Integer pollLast() {
+    if(isEmpty()) return null;
+
+    equalize(left, right);
+    return right.pop();
+  }
+  
+  public Integer peekFirst() {
+    if(isEmpty()) return null;
+
+    equalize(right, left);
+    return left.peek();
+  }
+  
+  public Integer peekLast() {
+    if(isEmpty()) return null;
+
+    equalize(left, right);
+    return right.peek();
+  }
+  
+  public int size() {
+    return left.size() + right.size();
+  }
+  
+  public boolean isEmpty() {
+    return size() == 0;
+  }
+
+  private void equalize(Deque<Integer> from, Deque<Integer> to) {
+    if(to.size() > 0) return;
+    int halfSize = from.size() / 2;
+    for(int i = 0; i < halfSize; i++) {
+      buffer.push(from.pop());
+    }
+    while(!from.isEmpty()) {
+      to.push(from.pop());
+    }
+    while(!buffer.isEmpty()) {
+      from.push(buffer.pop());
+    }
+  }
+}
+```

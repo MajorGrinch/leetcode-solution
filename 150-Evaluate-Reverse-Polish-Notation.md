@@ -2,7 +2,7 @@
 
 给定一个数组的token记录着逆波兰式，我们要计算这个逆波兰式的结果。这就是遇到操作符就弹出操作数，计算出结果压回去。遇到操作数，就入栈。很简单。
 
-不过我们要注意的是，操作数有可能是负数，所以如何判定一个`token`是操作符还是数字呢？那么`token.length() == 1 && Character.isDigit(token.charAt(0))`就可以推断出`token`是操作符。那么反过来，就可以推断出这是个数字。
+不过我们要注意的是，操作数有可能是负数，所以如何判定一个`token`是操作符还是数字呢？那么`token.length() == 1 && !Character.isDigit(token.charAt(0))`就可以推断出`token`是操作符。那么反过来，就可以推断出这是个数字。
 
 Time complexity: O(n)
 
@@ -38,5 +38,43 @@ class Solution {
     }
     return stack.peek();
   }
+}
+```
+
+2025 update:
+
+```java
+class Solution {
+    public int evalRPN(String[] tokens) {
+        Deque<Integer> nums = new ArrayDeque<>();
+        for (String token : tokens) {
+            if (token.length() > 1 || isDigit(token.charAt(0))) {
+                nums.push(Integer.parseInt(token));
+            } else {
+                int num2 = nums.pop();
+                int num1 = nums.pop();
+                char op = token.charAt(0);
+                switch (op) {
+                    case '+':
+                        nums.push(num1 + num2);
+                        break;
+                    case '-':
+                        nums.push(num1 - num2);
+                        break;
+                    case '*':
+                        nums.push(num1 * num2);
+                        break;
+                    case '/':
+                        nums.push(num1 / num2);
+                        break;
+                }
+            }
+        }
+        return nums.pop();
+    }
+
+    private boolean isDigit(char c) {
+        return '0' <= c && c <= '9';
+    }
 }
 ```
