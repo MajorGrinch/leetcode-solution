@@ -55,3 +55,49 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public List<List<Integer>> zigzagLevelOrder(TreeNode root) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (root == null) {
+            return res;
+        }
+        Deque<TreeNode> levelQ = new ArrayDeque<>();
+        levelQ.offerLast(root);
+        boolean towardsRight = true;
+        while (!levelQ.isEmpty()) {
+            int size = levelQ.size();
+            List<Integer> levelList = new ArrayList<>();
+            if (towardsRight) {
+                for (int i = 0; i < size; i++) {
+                    TreeNode curr = levelQ.pollFirst();
+                    levelList.add(curr.val);
+                    if (curr.left != null) {
+                        levelQ.offerLast(curr.left);
+                    }
+                    if (curr.right != null) {
+                        levelQ.offerLast(curr.right);
+                    }
+                }
+            } else {
+                for (int i = 0; i < size; i++) {
+                    TreeNode curr = levelQ.pollLast();
+                    levelList.add(curr.val);
+                    if (curr.right != null) {
+                        levelQ.offerFirst(curr.right);
+                    }
+                    if (curr.left != null) {
+                        levelQ.offerFirst(curr.left);
+                    }
+                }
+            }
+            towardsRight = !towardsRight;
+            res.add(levelList);
+        }
+        return res;
+    }
+}
+```
