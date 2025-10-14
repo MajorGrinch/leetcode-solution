@@ -10,7 +10,7 @@
 
 Time complexity: O(klogk)
 
-Space complexity: O(k)
+Space complexity: O(m * n)
 
 ```java
 public class Solution {
