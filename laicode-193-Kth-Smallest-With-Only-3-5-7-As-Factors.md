@@ -57,3 +57,55 @@ public class Solution {
   }
 }
 ```
+
+2025 update:
+
+```java
+public class Solution {
+  public long kth(int k) {
+    PriorityQueue<Tuple> minHeap = new PriorityQueue<>();
+    boolean[][][] vis = new boolean[k + 1][k + 1][k + 1];
+
+    minHeap.offer(new Tuple(1, 1, 1, 3 * 5 * 7));
+    vis[1][1][1] = true;
+    for(int i = 0; i < k - 1; i++) {
+      Tuple curr = minHeap.poll();
+      int x = curr.x;
+      int y = curr.y;
+      int z = curr.z;
+      long val = curr.val;
+      if(!vis[x + 1][y][z]) {
+        minHeap.offer(new Tuple(x + 1, y, z, val * 3));
+        vis[x + 1][y][z] = true;
+      }
+      if(!vis[x][y + 1][z]) {
+        minHeap.offer(new Tuple(x, y + 1, z, val * 5));
+        vis[x][y + 1][z] = true;
+      }
+      if(!vis[x][y][z + 1]) {
+        minHeap.offer(new Tuple(x, y, z + 1, val * 7));
+        vis[x][y][z + 1] = true;
+      }
+    }
+    return minHeap.peek().val;
+  }
+
+  class Tuple implements Comparable<Tuple>{
+    int x;
+    int y;
+    int z;
+    long val;
+    Tuple(int x, int y, int z, long val){
+      this.x = x;
+      this.y = y;
+      this.z = z;
+      this.val = val;
+    }
+
+    @Override
+    public int compareTo(Tuple another){
+      return Long.compare(this.val, another.val);
+    }
+  }
+}
+```
