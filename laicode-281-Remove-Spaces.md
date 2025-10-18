@@ -37,3 +37,38 @@ public class Solution {
   }
 }
 ```
+
+
+2025 code:
+
+```java
+public class Solution {
+  public String removeSpaces(String input) {
+    if(input.length() == 0) {
+      return input;
+    }
+    char[] sc = input.toCharArray();
+    int slow = 0;
+    for(int i = 0; i < sc.length; i++) {
+      if(sc[i] == ' ') {
+        if(slow == 0) {
+          // leading space
+          continue;
+        }
+        if(sc[i - 1] == ' ') {
+          // multiple spaces between words
+          continue;
+        }
+        // only space between words
+        sc[slow++] = sc[i];
+      } else {
+        sc[slow++] = sc[i];
+      }
+    }
+    if(slow > 0 && sc[slow-1] == ' ') {
+      slow--;
+    }
+    return new String(sc, 0, slow);
+  }
+}
+```

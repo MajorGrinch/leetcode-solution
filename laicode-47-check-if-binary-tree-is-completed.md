@@ -4,7 +4,9 @@
 
 怎么定义complete？除了最后一行，其他所有行都是满节点，并且最后一行的节点都是从左开始连续的。
 
-其实这题还是逐行扫描，和[102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)核心思想是一样的。但是在扫描的时候，我们记录一个全局变量`metNull`，表示是否在二叉树里面遇到`null`节点了。根据题目的定义，我们可以推测出一旦遇到过`null`节点了，该二叉树后面所有的节点都必须为`null`。否则，就不符合要求。
+其实这题还是逐行扫描，和[102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)核心思想是一样的。但是在扫描的时候，我们记录一个全局变量`metNull`，表示是否在二叉树里面遇到`null`节点了。
+
+根据题目的定义，我们可以推测出一旦当前层的任意一个节点有子节点为`null`，那么这个节点同一层后面所有的节点都不可以有非`null`子节点。而且下一层所有节点必须得是叶子节点。那么我们可以抽象出这么个逻辑，只要遇到`null`了，后面按层遍历的时候就不可以遇到非`null`子节点。按照这个逻辑实现就可以了。
 
 ```java
 public class Solution {

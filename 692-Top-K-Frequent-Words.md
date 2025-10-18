@@ -59,3 +59,45 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public List<String> topKFrequent(String[] words, int k) {
+        List<String> res = new ArrayList<>();
+        if (words == null || words.length == 0 || k == 0) {
+            return res;
+        }
+        Map<String, Integer> freqMap = getFreqMap(words);
+        PriorityQueue<Map.Entry<String, Integer>> minHeap = new PriorityQueue<>((e1, e2) -> {
+            int cmp = Integer.compare(e1.getValue(), e2.getValue());
+            if (cmp != 0) {
+                return cmp;
+            } else {
+                return e2.getKey().compareTo(e1.getKey());
+            }
+        });
+        for (Map.Entry<String, Integer> entry : freqMap.entrySet()) {
+            minHeap.offer(entry);
+            if (minHeap.size() > k) {
+                minHeap.poll();
+            }
+        }
+        for (int i = 0; i < k; i++) {
+            res.add(minHeap.poll().getKey());
+        }
+        Collections.reverse(res);
+        return res;
+    }
+
+    private Map<String, Integer> getFreqMap(String[] words) {
+        Map<String, Integer> freqMap = new HashMap<>();
+        for (String w : words) {
+            int count = freqMap.getOrDefault(w, 0) + 1;
+            freqMap.put(w, count);
+        }
+        return freqMap;
+    }
+}
+```

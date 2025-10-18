@@ -54,6 +54,48 @@ class Solution {
 }
 ```
 
+2025 update:
+```java
+class Solution {
+    public boolean isBipartite(int[][] graph) {
+        if (graph == null || graph.length == 0) {
+            return true;
+        }
+        int[] vis = new int[graph.length];
+        Arrays.fill(vis, 0);
+
+        for (int i = 0; i < graph.length; i++) {
+            if (!bfs(graph, i, vis)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean bfs(int[][] graph, int start, int[] vis) {
+        if (vis[start] != 0) {
+            return true;
+        }
+        Queue<Integer> queue = new ArrayDeque<>();
+        queue.offer(start);
+        vis[start] = 1;
+        while (!queue.isEmpty()) {
+            int curr = queue.poll();
+            int expectColor = vis[curr] == 1 ? -1 : 1;
+            for (int node : graph[curr]) {
+                if (vis[node] == 0) {
+                    queue.offer(node);
+                    vis[node] = expectColor;
+                } else if (vis[node] != expectColor) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
+```
+
 ## DFS Approach
 
 这题也可以用深度优先遍历配合染色，思路和BFS的一样。遇到邻居如果没访问过，那就染上和自己不一样的颜色，并进行搜索。如果访问过，那就对比颜色。

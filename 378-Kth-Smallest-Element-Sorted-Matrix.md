@@ -10,6 +10,15 @@ Time complexity: O(klogk)，因为会重复k-1次，堆最多不到2k个元素�
 
 Space complexity: O(k + n^2)，堆里会有不到2k个元素，额外的需要一个和矩阵同等大小的vis数组来记录访问情况。
 
+
+2025 update:
+
+这题多了个有意思的条件，要求空间复杂度必须小于O(n^2)。那么我们经典的BFS+MinHeap就需要做一点小修改，不可以用vis数组来记录已经访问过的点了。那怎么办呢？
+
+我们可以把第一列的前K行元素都入堆，我可以保证第K小的元素肯定是在这K行里，然后循环K-1次。每次从堆顶弹出最小的坐标，然后把他下一列入堆。循环结束后，堆顶就是第K小的元素了。
+
+Space complexity: O(k)
+
 ```java
 class Solution {
   public int kthSmallest(int[][] matrix, int k) {
@@ -45,5 +54,45 @@ class Solution {
     int[] coor = pq.peek();
     return matrix[coor[0]][coor[1]];
   }
+}
+```
+
+2025 code:
+
+```java
+class Solution {
+    public int kthSmallest(int[][] matrix, int k) {
+        PriorityQueue<Pair> minHeap = new PriorityQueue<>();
+        int n = matrix.length;
+        for (int i = 0; i < Math.min(n, k); i++) {
+            minHeap.offer(new Pair(i, 0, matrix[i][0]));
+        }
+        for (int i = 0; i < k - 1; i++) {
+            Pair curr = minHeap.poll();
+            int r = curr.r;
+            int c = curr.c;
+            if (c + 1 < n) {
+                minHeap.offer(new Pair(r, c + 1, matrix[r][c + 1]));
+            }
+        }
+        return minHeap.poll().v;
+    }
+}
+
+class Pair implements Comparable<Pair> {
+    int r;
+    int c;
+    int v;
+
+    public Pair(int r, int c, int v) {
+        this.r = r;
+        this.c = c;
+        this.v = v;
+    }
+
+    @Override
+    public int compareTo(Pair p2) {
+        return Integer.compare(this.v, p2.v);
+    }
 }
 ```

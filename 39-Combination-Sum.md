@@ -45,3 +45,40 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        if (candidates.length == 0 || target == 0) {
+            return res;
+        }
+        dfs(candidates, target, 0, new ArrayList<>(), 0, res);
+        return res;
+    }
+
+    private void dfs(int[] candidates, int target, int level, List<Integer> comb, int currSum,
+            List<List<Integer>> res) {
+        if (currSum == target) {
+            res.add(new ArrayList<>(comb));
+            return;
+        }
+        if (level >= candidates.length) {
+            return;
+        }
+        int curr = candidates[level];
+        int n = (target - currSum) / curr;
+        dfs(candidates, target, level + 1, comb, currSum, res);
+        for (int i = 1; i <= n; i++) {
+            comb.add(curr);
+            currSum += curr;
+            dfs(candidates, target, level + 1, comb, currSum, res);
+        }
+        for (int i = 1; i <= n; i++) {
+            comb.remove(comb.size() - 1);
+        }
+    }
+}
+```
