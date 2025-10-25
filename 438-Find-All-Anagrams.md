@@ -53,3 +53,46 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public List<Integer> findAnagrams(String s, String p) {
+        List<Integer> res = new ArrayList<>();
+
+        if (s.length() < p.length()) {
+            return res;
+        }
+
+        int[] freqS = new int[256];
+        int[] freqP = new int[256];
+        for (int i = 0; i < p.length(); i++) {
+            freqS[s.charAt(i)]++;
+            freqP[p.charAt(i)]++;
+        }
+        int[] delta = new int[256];
+        int deltaSum = 0;
+        for (int i = 0; i < 256; i++) {
+            delta[i] = freqS[i] - freqP[i];
+            deltaSum += Math.abs(delta[i]);
+        }
+
+        if (deltaSum == 0) {
+            res.add(0);
+        }
+        for (int i = p.length(); i < s.length(); i++) {
+            char oldChar = s.charAt(i - p.length());
+            char newChar = s.charAt(i);
+            deltaSum -= Math.abs(delta[oldChar]) + Math.abs(delta[newChar]);
+            delta[oldChar]--;
+            delta[newChar]++;
+            deltaSum += Math.abs(delta[oldChar]) + Math.abs(delta[newChar]);
+            if (deltaSum == 0) {
+                res.add(i - p.length() + 1);
+            }
+        }
+        return res;
+    }
+}
+```
