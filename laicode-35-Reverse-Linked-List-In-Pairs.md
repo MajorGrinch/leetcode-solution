@@ -48,3 +48,26 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+
+```java
+public class Solution {
+  public ListNode reverseInPairs(ListNode head) {
+    ListNode dummy = new ListNode(0);
+    dummy.next = head;
+    ListNode prevTail = dummy;
+    while(head != null && head.next != null) {
+      ListNode currHead = head;
+      ListNode nextHead = head.next.next;
+      head = nextHead;
+      prevTail.next = currHead.next;
+      currHead.next.next = currHead;
+      currHead.next = nextHead;
+      prevTail = currHead;
+    }
+    return dummy.next;
+  }
+}
+```
