@@ -30,3 +30,27 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public int maxPathSum(TreeNode root) {
+    int[] res = {Integer.MIN_VALUE};
+    dfs(root, 0, res);
+    return res[0];
+  }
+
+  private void dfs(TreeNode node, int currSum, int[] res) {
+    currSum += node.key;
+    res[0] = Math.max(res[0], currSum);
+    currSum = Math.max(currSum, 0);
+    if(node.left != null) {
+      dfs(node.left, currSum, res);
+    }
+    if(node.right != null) {
+      dfs(node.right, currSum, res);
+    }
+  }
+}
+```

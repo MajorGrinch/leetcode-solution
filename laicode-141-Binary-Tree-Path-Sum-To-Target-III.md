@@ -38,3 +38,28 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+```java
+public class Solution {
+  public boolean exist(TreeNode root, int target) {
+    Map<Integer, Integer> prefixSumMap = new HashMap<>();
+    prefixSumMap.put(0, 1);
+    return exist(root, 0, target, prefixSumMap);
+  }
+
+  private boolean exist(TreeNode node, int currSum, int target, Map<Integer, Integer> prefixSumMap) {
+    if(node == null) {
+      return false;
+    }
+    currSum += node.key;
+    if(prefixSumMap.getOrDefault(currSum - target, 0) > 0) {
+      return true;
+    }
+    prefixSumMap.put(currSum, prefixSumMap.getOrDefault(currSum, 0) + 1);
+    boolean res = exist(node.left, currSum, target, prefixSumMap) || exist(node.right, currSum, target, prefixSumMap);
+    prefixSumMap.put(currSum, prefixSumMap.getOrDefault(currSum, 0) - 1);
+    return res;
+  }
+}
+```
