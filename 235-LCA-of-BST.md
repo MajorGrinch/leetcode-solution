@@ -31,3 +31,24 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        if (p.val > q.val) {
+            return lowestCommonAncestor(root, q, p);
+        }
+        TreeNode node = root;
+        while (p.val > node.val || q.val < node.val) {
+            if (p.val > node.val) {
+                node = node.right;
+            } else {
+                node = node.left;
+            }
+        }
+        return node;
+    }
+}
+```

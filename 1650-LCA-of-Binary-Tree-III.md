@@ -38,3 +38,45 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public Node lowestCommonAncestor(Node p, Node q) {
+        int depth1 = getDepth(p);
+        int depth2 = getDepth(q);
+        if (depth1 > depth2) {
+            return findLCA(p, q, depth1 - depth2);
+        } else {
+            return findLCA(q, p, depth2 - depth1);
+        }
+    }
+
+    /**
+    Assume p is deeper than q.
+     */
+    private Node findLCA(Node p, Node q, int depthDiff) {
+        while (depthDiff-- > 0) {
+            p = p.parent;
+        }
+        while (p != q) {
+            p = p.parent;
+            q = q.parent;
+        }
+        return p;
+    }
+
+    private int getDepth(Node node) {
+        if (node == null) {
+            return 0;
+        }
+        int depth = 0;
+        while (node != null) {
+            node = node.parent;
+            depth++;
+        }
+        return depth;
+    }
+}
+```

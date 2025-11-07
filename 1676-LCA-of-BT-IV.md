@@ -29,3 +29,29 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode[] nodes) {
+        Set<Integer> valSet = new HashSet<>();
+        for (TreeNode n : nodes) {
+            valSet.add(n.val);
+        }
+        return findLCA(root, valSet);
+    }
+
+    private TreeNode findLCA(TreeNode node, Set<Integer> valSet) {
+        if (node == null || valSet.contains(node.val)) {
+            return node;
+        }
+        TreeNode left = findLCA(node.left, valSet);
+        TreeNode right = findLCA(node.right, valSet);
+        if (left != null && right != null) {
+            return node;
+        }
+        return left == null ? right : left;
+    }
+}
+```

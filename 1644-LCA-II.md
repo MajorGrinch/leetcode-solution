@@ -40,3 +40,32 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+        TreeNode lca = findLCA(root, p, q);
+        if (lca == p) {
+            return findLCA(p, q, q) == null ? null : p;
+        } else if (lca == q) {
+            return findLCA(q, p, p) == null ? null : q;
+        } else {
+            return lca;
+        }
+    }
+
+    private TreeNode findLCA(TreeNode node, TreeNode p, TreeNode q) {
+        if (node == null || node == p || node == q) {
+            return node;
+        }
+        TreeNode left = findLCA(node.left, p, q);
+        TreeNode right = findLCA(node.right, p, q);
+        if (left != null && right != null) {
+            return node;
+        }
+        return left == null ? right : left;
+    }
+}
+```
