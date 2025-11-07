@@ -27,3 +27,23 @@ public class Solution {
   }
 }
 ```
+
+```java
+public class Solution {
+  public boolean exist(TreeNode root, int target) {
+    return helper(root, target);
+  }
+
+  private boolean helper(TreeNode node, int target) {
+    if(node == null) {
+      return false;
+    }
+    if(node.left == null && node.right == null) {
+      // leaf node
+      return node.key == target;
+    }
+    target -= node.key;
+    return helper(node.left, target) || helper(node.right, target);
+  }
+}
+```
