@@ -29,3 +29,23 @@ public class Solution {
   }
 }
 ```
+2025 code
+
+```java
+public class Solution {
+  public int percentile95(List<Integer> lengths) {
+    int[] lenMap = new int[4097];
+    for(int len: lengths) {
+      lenMap[len]++;
+    }
+    int count = 0;
+    for(int i = 4096; i > 0; i--) {
+      count += lenMap[i];
+      if(count > lengths.size() * 0.05) {
+        return i;
+      }
+    }
+    return -1;
+  }
+}
+```
