@@ -2,11 +2,38 @@
 
 给定一个数组的数字，每个下标的数字代表这个下标的地方能往后走几步。问从0开始，是否能走到最后一个下标。
 
-## DP Approach
+## DP Approach 1
 
-这题可以用动态规划的思想来解决，用`reachEnd`数组来存放子问题答案。`reachEnd[i]`表示`i`是否可以走到最后一个下标，`true`就是可以，`false`就是不可以。
+这题运用动态规划的思路，用 reachable 数组来存放每个下标是否可达。初始化第一个下标可达，其余都不可达。
 
-`reachEnd[len - 1]`肯定是true，它自己就是最后一个下标。我们从倒数第二个下标开始往前推，每到一个下标为`i`的地方，就看看`[i + 1, i + nums[i]]`这个范围里有没有能走到最后的下标，如果有的话就代表`i`可以走到最后。如果没有，就说明`i`不可以走到最后。就这样一直到最开始的下标，我们就可以知道它到底可不可以走到最后。
+从 0 开始遍历，如果当前`i`不可达，那么直接返回 false 就好了，因为末尾肯定没法可达。如果当前`i`是可达的，那么`[i + 1, i + nums[i]]`也全都可达，注意`i + nums[i]`不能数组越界。
+
+最后看看末尾的下标是否可达就好。
+
+```java
+class Solution {
+    public boolean canJump(int[] nums) {
+        int n = nums.length;
+        boolean[] reachable = new boolean[n];
+        reachable[0] = true;
+        for (int i = 0; i < n; i++) {
+            if (!reachable[i]) {
+                return false;
+            }
+            for (int k = 1; k <= nums[i] && i + k < n; k++) {
+                reachable[i + k] = true;
+            }
+        }
+        return reachable[n - 1];
+    }
+}
+```
+
+## DP Approach 2
+
+这题还可以从末尾向前遍历，reachable 存的就是当前下标是否可以到达末尾。
+
+那么`reachEnd[len - 1]`肯定是可以到达末尾的，它自己就是末尾。我们从倒数第二个下标开始往前推，每到一个下标为`i`的地方，就看看`[i + 1, i + nums[i]]`这个范围里有没有能走到最后的下标，如果有的话就代表`i`可以走到最后。如果没有，就说明`i`不可以走到最后。就这样一直到最开始的下标，我们就可以知道它到底可不可以走到最后。
 
 Time complexity: O(N^2)
 
@@ -14,18 +41,20 @@ Space complexity: O(N)
 
 ```java
 class Solution {
-  public boolean canJump(int[] nums) {
-    boolean[] reachEnd = new boolean[nums.length];
-    reachEnd[nums.length - 1] = true;
-    for (int i = nums.length - 2; i >= 0; i--) {
-      for (int j = i; j <= i + nums[i] && j < nums.length; j++) {
-        if (reachEnd[j]) {
-          reachEnd[i] = true;
+    public boolean canJump(int[] nums) {
+        int n = nums.length;
+        boolean[] reachable = new boolean[n];
+        reachable[n - 1] = true;
+        for (int i = n - 2; i >= 0; i--) {
+            for (int j = i + 1; j <= i + nums[i] && j < n; j++) {
+                if (reachable[j]) {
+                    reachable[i] = true;
+                    break;
+                }
+            }
         }
-      }
+        return reachable[0];
     }
-    return reachEnd[0];
-  }
 }
 ```
 

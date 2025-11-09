@@ -31,3 +31,28 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public int findLengthOfLCIS(int[] nums) {
+        int n = nums.length;
+        if (n <= 1) {
+            return n;
+        }
+        int[] increasing = new int[n];
+        increasing[0] = 1;
+        int res = 1;
+        for (int i = 1; i < n; i++) {
+            if (nums[i] > nums[i - 1]) {
+                increasing[i] = increasing[i - 1] + 1;
+            } else {
+                increasing[i] = 1;
+            }
+            res = Math.max(res, increasing[i]);
+        }
+        return res;
+    }
+}
+```
