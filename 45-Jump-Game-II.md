@@ -1,10 +1,42 @@
 # 45. Jump Game II
 
-## DP Approach
+## DP Approach 1
 
 和 [55. Jump Game](55-Jump-Game.md) 差不多，但是这里需要求出最少走几步。
 
-那么我们依然用动态规划的思想，`minJumps[i]`代表`i`最少需要几步才可以走到最后的位置，`minJumps[len - 1]`是最后一个下标所以显然为0。从倒数第二个位置往前推，每到下标`i`的地方就看看`[i + 1, i + nums[i]]`范围内谁到最后的步数最少，取最少的那个加上1就是`i`到最后需要的步数。
+依然动态规划思想，steps 数组存放 0 到 i 需要走多少步。初始化 steps[0] = 0，然后其余都为-1。每到一个新的 i，我们先检查该下标是否可达，如果不可达的话那直接返回 -1 表示末尾不可达。如果该 i 可达，我们就把 i 所有能到的下标全都更新最短步数。
+
+Time complexity: O(N^2)
+
+Space complexity: O(N)
+
+```java
+class Solution {
+    public int jump(int[] nums) {
+        int len = nums.length;
+        int[] steps = new int[len];
+        Arrays.fill(steps, -1);
+        steps[0] = 0;
+        for(int i = 0; i < len; i++) {
+            if(steps[i] == -1) {
+                return -1;
+            }
+            for(int j = i + 1; j < len && j <= i + nums[i]; j++) {
+                if(steps[j] == -1) {
+                    steps[j] = steps[i] + 1;
+                } else {
+                    steps[j] = Math.min(steps[j], steps[i] + 1);
+                }
+            }
+        }
+        return steps[len - 1];
+    }
+}
+```
+
+## DP Approach 2
+
+这题也可以倒过来，`minJumps[i]`代表`i`最少需要几步才可以走到最后的位置，`minJumps[len - 1]`是最后一个下标所以显然为0。从倒数第二个位置往前推，每到下标`i`的地方就看看`[i + 1, i + nums[i]]`范围内谁到最后的步数最少，取最少的那个加上1就是`i`到最后需要的步数。
 
 最后我们返回`minJumps[0]`就可以了。
 
@@ -59,5 +91,28 @@ class Solution {
     }
     return steps;
   }
+}
+```
+
+2025 code:
+
+```java
+class Solution {
+    public int jump(int[] nums) {
+        int steps = 0;
+        int currentReach = 0;
+        int nextReach = nums[0];
+        for(int i = 0; i < nums.length; i++) {
+            if(currentReach >= nums.length - 1) {
+                return steps;
+            }
+            nextReach = Math.max(nextReach, i + nums[i]);
+            if(i == currentReach) {
+                steps++;
+                currentReach = nextReach;
+            }
+        }
+        return -1;
+    }
 }
 ```
