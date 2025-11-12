@@ -89,3 +89,31 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public int minDistance(String word1, String word2) {
+        int M = word1.length();
+        int N = word2.length();
+        int[][] distance = new int[M + 1][N + 1];
+        for (int i = 0; i < M + 1; i++) {
+            distance[i][0] = i;
+        }
+        for (int j = 0; j < N + 1; j++) {
+            distance[0][j] = j;
+        }
+        for (int i = 1; i < M + 1; i++) {
+            for (int j = 1; j < N + 1; j++) {
+                int replace = word1.charAt(i - 1) == word2.charAt(j - 1) ? distance[i - 1][j - 1]
+                        : distance[i - 1][j - 1] + 1;
+                int delete = distance[i - 1][j] + 1;
+                int insert = distance[i][j - 1] + 1;
+                distance[i][j] = Math.min(replace, Math.min(delete, insert));
+            }
+        }
+        return distance[M][N];
+    }
+}
+```
