@@ -32,3 +32,32 @@ public class Solution {
   }
 }
 ```
+
+通用解法：
+
+使用通用解法，只有 `fast - begin == 1 && (slow == 0 || sc[slow - 1] != sc[begin])` 的时候，我们才需要把 begin 处的字符放入 [0, slow)。更进一步，如果 `slow > 0 && sc[slow - 1] == sc[begin]`的话，他们还需要像祖玛一样相消，slow--。只要这样，我们就可以用通用解法得到正确的答案。
+
+```java
+public class Solution {
+  public String deDup(String input) {
+    if(input == null || input.length() <= 1) {
+      return input;
+    }
+    int slow = 0;
+    int fast = 0;
+    char[] sc = input.toCharArray();
+    while(fast < sc.length) {
+      int begin = fast;
+      while(fast < sc.length && sc[fast] == sc[begin]) {
+        fast++;
+      }
+      if(fast - begin == 1 && (slow == 0 || sc[slow - 1] != sc[begin])) {
+        sc[slow++] = sc[begin];
+      } else if(slow > 0 && sc[slow - 1] == sc[begin]) {
+        slow--;
+      }
+    }
+    return new String(sc, 0, slow);
+  }
+}
+```

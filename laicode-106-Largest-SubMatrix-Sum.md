@@ -60,3 +60,59 @@ public class Solution {
   }
 }
 ```
+
+2025 update:
+
+我把 colPrefixSum稍微改了一下定义，`colPrefixSum[i][j]` 表示第 j 列的 `[0, i)` 行的前缀和。那么很显然，colPrefixSum 数组会有 `m + 1`行。在遍历 top 和 bottom 的时候，我们把`[bottom, top)`行进行压缩，从而更加直观地搭配。`0 <= bottom <= m - 1`，`bottom + 1 <= top <= m`。
+
+```java
+public class Solution {
+  public int largest(int[][] matrix) {
+    if(matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+      return 0;
+    }
+    int[][] colPrefixSum = getColPrefixSum(matrix);
+    int m = matrix.length;
+    int n = matrix[0].length;
+    int res = Integer.MIN_VALUE;
+    // [bottom, top)
+    for(int bottom = 0; bottom < m; bottom++) {
+      for(int top = bottom + 1; top < m + 1; top++) {
+        int[] compress = new int[n];
+        for(int j = 0; j < n; j++) {
+          compress[j] = colPrefixSum[top][j] - colPrefixSum[bottom][j];
+        }
+        int localMax = maxSubArraySum(compress);
+        res = Math.max(res, localMax);
+      }
+    }
+    return res;
+  }
+
+  private int maxSubArraySum(int[] array) {
+    int curr = array[0];
+    int res = curr;
+    for(int i = 1; i < array.length; i++) {
+      if(curr > 0) {
+        curr += array[i];
+      } else {
+        curr = array[i];
+      }
+      res = Math.max(res, curr);
+    }
+    return res;
+  }
+
+  private int[][] getColPrefixSum(int[][] matrix) {
+    int m = matrix.length;
+    int n = matrix[0].length;
+    int[][] colPreSum = new int[m + 1][n];
+    for(int j = 0; j < n; j++) {
+      for(int i = 1; i < m + 1; i++) {
+        colPreSum[i][j] = colPreSum[i - 1][j] + matrix[i - 1][j];
+      }
+    }
+    return colPreSum;
+  }
+}
+```

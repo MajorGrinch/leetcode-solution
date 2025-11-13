@@ -42,3 +42,33 @@ public class Solution {
   }
 }
 ```
+
+也可以这么写，都是通用解法。
+
+```java
+public class Solution {
+  public String deDup(String input) {
+    if(input == null || input.length() <= 2) {
+      return input;
+    }
+    char[] sc = input.toCharArray();
+    int slow = 0;
+    int fast = 0;
+    while(fast < sc.length) {
+      int begin = fast;
+      while(fast < sc.length && sc[fast] == sc[begin]) {
+        fast++;
+      }
+      if(fast - begin == 1) {
+        // only appear once
+        sc[slow++] = sc[begin];
+      } else {
+        // appear at least twice
+        sc[slow++] = sc[begin];
+        sc[slow++] = sc[begin];
+      }
+    }
+    return new String(sc, 0, slow);
+  }
+}
+```

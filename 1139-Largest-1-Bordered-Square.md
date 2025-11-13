@@ -70,3 +70,53 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public int largest1BorderedSquare(int[][] grid){
+        List < int[][] > rightDown = calcRightAndDown(grid);
+        int[][] right = rightDown.get(0);
+        int[][] down = rightDown.get(1);
+        int m = grid.length;
+        int n = grid[0].length;
+        int res = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if(grid[i][j] != 1) {
+                    continue;
+                }
+                int edge = Math.min(right[i][j], down[i][j]);
+                for (int k = edge; k > 0; k--) {
+                    if (right[i + k - 1][j] >= k && down[i][j + k - 1] >= k) {
+                        res = Math.max(res, k);
+                        break;
+                    }
+                }
+            }
+        }
+        return res * res;
+    }
+    private List < int[][] > calcRightAndDown(int[][] grid) {
+        int m = grid.length;
+        int n = grid[0].length;
+        int[][] rightOne = new int[m][n];
+        int[][] downOne = new int[m][n];
+        for (int i = m - 1; i >= 0; i--) {
+            for (int j = n - 1; j >= 0; j--) {
+                rightOne[i][j] = grid[i][j] == 1 ? consecOneLen(rightOne, i, j + 1) + 1 : 0;
+                downOne[i][j] = grid[i][j] == 1 ? consecOneLen(downOne, i + 1, j) + 1 : 0;
+            }
+        }
+        return Arrays.asList(rightOne, downOne);
+    }
+
+    private int consecOneLen(int[][] dp, int i, int j) {
+        if (i < 0 || i >= dp.length || j < 0 || j >= dp[0].length) {
+            return 0;
+        }
+        return dp[i][j];
+    }
+}
+```

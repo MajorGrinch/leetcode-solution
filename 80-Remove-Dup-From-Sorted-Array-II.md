@@ -26,3 +26,26 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+通用解法
+
+```java
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        int slow = 0;
+        int fast = 0;
+        while(fast < nums.length) {
+            int begin = fast;
+            while(fast < nums.length && nums[fast] == nums[begin]) {
+                fast++;
+            }
+            for(int i = 0; i < 2 && begin + i < fast; i++) {
+                nums[slow++] = nums[begin + i];
+            }
+        }
+        return slow;
+    }
+}
+```
