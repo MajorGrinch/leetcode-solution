@@ -38,3 +38,39 @@ public class Solution {
   }
 }
 ```
+
+这样写也行。
+```java
+public class Solution {
+  public TreeNodeP lowestCommonAncestor(TreeNodeP one, TreeNodeP two) {
+    int depth1 = getDepth(one);
+    int depth2 = getDepth(two);
+    int diff = depth1 - depth2;
+    return diff > 0 ? findLCA(one, two, diff) : findLCA(two, one, -diff);
+  }
+
+  /**
+    Assume one is deeper
+  */
+  private TreeNodeP findLCA(TreeNodeP one, TreeNodeP two, int diff) {
+    while(diff > 0) {
+      one = one.parent;
+      diff--;
+    }
+    while(one != two) {
+      one = one.parent;
+      two = two.parent;
+    }
+    return one;
+  }
+
+  private int getDepth(TreeNodeP node) {
+    int depth = 0;
+    while(node != null) {
+      node = node.parent;
+      depth++;
+    }
+    return depth;
+  }
+}
+```

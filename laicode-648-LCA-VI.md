@@ -36,3 +36,37 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public KnaryTreeNode lowestCommonAncestor(KnaryTreeNode root, List<KnaryTreeNode> nodes) {
+    Set<Integer> keySet = new HashSet<>();
+    for(KnaryTreeNode node: nodes) {
+      keySet.add(node.key);
+    }
+    return findLCA(root, keySet);
+  }
+
+  private KnaryTreeNode findLCA(KnaryTreeNode node, Set<Integer> keySet) {
+    if(node == null || keySet.contains(node.key)) {
+      return node;
+    }
+    List<KnaryTreeNode> childrenRes = new ArrayList<>();
+    for(KnaryTreeNode child: node.children) {
+      KnaryTreeNode res = findLCA(child, keySet);
+      if(res != null) {
+        childrenRes.add(res);
+      }
+    }
+    if(childrenRes.isEmpty()) {
+      return null;
+    } else if(childrenRes.size() == 1) {
+      return childrenRes.get(0);
+    } else {
+      return node;
+    }
+  }
+}
+```

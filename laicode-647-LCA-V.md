@@ -32,3 +32,29 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public KnaryTreeNode lowestCommonAncestor(KnaryTreeNode root, KnaryTreeNode a, KnaryTreeNode b) {
+    if(root == null || root == a || root == b) {
+      return root;
+    }
+    List<KnaryTreeNode> childrenRes = new ArrayList<>();
+    for(KnaryTreeNode child: root.children) {
+      KnaryTreeNode res = lowestCommonAncestor(child, a, b);
+      if(res != null) {
+        childrenRes.add(res);
+      }
+    }
+    if(childrenRes.isEmpty()) {
+      return null;
+    } else if(childrenRes.size() == 1) {
+      return childrenRes.get(0);
+    } else {
+      return root;
+    }
+  }
+}
+```
