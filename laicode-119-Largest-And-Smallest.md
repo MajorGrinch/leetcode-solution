@@ -54,3 +54,50 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public int[] largestAndSmallest(int[] array) {
+    int l = 0;
+    int r = array.length - 1;
+    while(l < r) {
+      if(array[l] > array[r]) {
+        swap(array, l, r);
+      }
+      l++;
+      r--;
+    }
+    return new int[] {getLargest(array, r, array.length - 1), getSmallest(array, 0, l)};
+  }
+
+  private int getSmallest(int[] array, int st, int ed) {
+    int smallest = array[st++];
+    while(st <= ed) {
+      if(array[st] < smallest) {
+        smallest = array[st];
+      }
+      st++;
+    }
+    return smallest;
+  }
+
+  private int getLargest(int[] array, int st, int ed) {
+    int largest = array[st++];
+    while(st <= ed) {
+      if(array[st] > largest) {
+        largest = array[st];
+      }
+      st++;
+    }
+    return largest;
+  }
+
+  private void swap(int[] array, int i, int j) {
+    int temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+}
+```

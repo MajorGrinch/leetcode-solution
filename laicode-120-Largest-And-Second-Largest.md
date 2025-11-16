@@ -66,3 +66,63 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+
+```java
+public class Solution {
+  public int[] largestAndSecond(int[] array) {
+    Element[] elements = Element.fromIntArray(array);
+    int size = array.length;
+    while(size > 1) {
+      int l = 0;
+      int r = size - 1;
+      while(l < r) {
+        if(elements[l].val < elements[r].val) {
+          swap(elements, l, r);
+        }
+        elements[l].compared.add(elements[r].val);
+        l++;
+        r--;
+      }
+      size = (size + 1) / 2;
+    }
+    return new int[] {elements[0].val, getLargest(elements[0].compared)};
+  }
+
+  private int getLargest(List<Integer> list) {
+    int res = list.get(0);
+    for(int i = 1; i < list.size(); i++) {
+      if(res < list.get(i)) {
+        res = list.get(i);
+      }
+    }
+    return res;
+  }
+
+  private void swap(Element[] array, int i, int j) {
+    Element temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+
+  static class Element {
+    private int val;
+    private List<Integer> compared;
+
+    Element(int val) {
+      this.val = val;
+      compared = new ArrayList<>();
+    }
+
+    public static Element[] fromIntArray(int[] array) {
+      Element[] eles = new Element[array.length];
+      for(int i = 0; i < array.length; i++) {
+        eles[i] = new Element(array[i]);
+      }
+      return eles;
+    }
+  }
+}
+```
