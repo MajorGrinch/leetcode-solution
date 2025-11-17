@@ -38,3 +38,33 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public List<Integer> closestKValues(TreeNode root, double target, int k) {
+        Deque<Integer> queue = new ArrayDeque<>();
+        inorder(root, target, k, queue);
+        return new ArrayList<>(queue);
+    }
+
+    private void inorder(TreeNode node, double target, int k, Queue<Integer> queue) {
+        if(node == null) {
+            return;
+        }
+        inorder(node.left, target, k, queue);
+        if(queue.size() < k) {
+            queue.offer(node.val);
+        } else {
+            if(Math.abs(queue.peek() - target) > Math.abs(node.val - target)) {
+                queue.poll();
+                queue.offer(node.val);
+            } else {
+                return;
+            }
+        }
+        inorder(node.right, target, k, queue);
+    }
+}
+```
