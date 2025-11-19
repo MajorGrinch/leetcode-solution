@@ -37,20 +37,19 @@ public class Solution {
 public class Solution {
   public int maxPathSum(TreeNode root) {
     int[] res = {Integer.MIN_VALUE};
-    dfs(root, 0, res);
+    helper(root, 0, res);
     return res[0];
   }
 
-  private void dfs(TreeNode node, int currSum, int[] res) {
-    currSum += node.key;
-    res[0] = Math.max(res[0], currSum);
-    currSum = Math.max(currSum, 0);
-    if(node.left != null) {
-      dfs(node.left, currSum, res);
+  private void helper(TreeNode node, int prefixSum, int[] res) {
+    if(node == null) {
+      return;
     }
-    if(node.right != null) {
-      dfs(node.right, currSum, res);
-    }
+    prefixSum = Math.max(prefixSum, 0);
+    res[0] = Math.max(res[0], prefixSum + node.key);
+    prefixSum += node.key;
+    helper(node.left, prefixSum, res);
+    helper(node.right, prefixSum, res);
   }
 }
 ```

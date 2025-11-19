@@ -45,20 +45,20 @@ public class Solution {
   public boolean exist(TreeNode root, int target) {
     Map<Integer, Integer> prefixSumMap = new HashMap<>();
     prefixSumMap.put(0, 1);
-    return exist(root, 0, target, prefixSumMap);
+    return helper(root, target, 0, prefixSumMap);
   }
 
-  private boolean exist(TreeNode node, int currSum, int target, Map<Integer, Integer> prefixSumMap) {
+  private boolean helper(TreeNode node, int target, int prefixSum, Map<Integer, Integer> prefixSumMap) {
     if(node == null) {
       return false;
     }
-    currSum += node.key;
-    if(prefixSumMap.getOrDefault(currSum - target, 0) > 0) {
+    prefixSum += node.key;
+    if(prefixSumMap.getOrDefault(prefixSum - target, 0) > 0) {
       return true;
     }
-    prefixSumMap.put(currSum, prefixSumMap.getOrDefault(currSum, 0) + 1);
-    boolean res = exist(node.left, currSum, target, prefixSumMap) || exist(node.right, currSum, target, prefixSumMap);
-    prefixSumMap.put(currSum, prefixSumMap.getOrDefault(currSum, 0) - 1);
+    prefixSumMap.put(prefixSum, prefixSumMap.getOrDefault(prefixSum, 0) + 1);
+    boolean res = helper(node.left, target, prefixSum, prefixSumMap) || helper(node.right, target, prefixSum, prefixSumMap);
+    prefixSumMap.put(prefixSum, prefixSumMap.get(prefixSum) - 1);
     return res;
   }
 }
