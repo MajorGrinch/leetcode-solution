@@ -34,3 +34,24 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public List<List<Integer>> allPairs(int[] array, int target) {
+    Map<Integer, Integer> freqMap = new HashMap<>();
+    List<List<Integer>> res = new ArrayList<>();
+    for(int num: array) {
+      int count = freqMap.getOrDefault(num, 0);
+      if(target - num == num && count == 1) {
+        res.add(Arrays.asList(num, num));
+      } else if(target - num != num && freqMap.containsKey(target - num) && count == 0) {
+        res.add(Arrays.asList(target - num, num));
+      }
+      freqMap.put(num, count + 1);
+    }
+    return res;
+  }
+}
+```

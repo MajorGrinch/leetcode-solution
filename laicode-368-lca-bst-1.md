@@ -21,3 +21,23 @@ public class Solution {
   }
 }
 ```
+
+另一种写法：
+
+```java
+public class Solution {
+  public TreeNode lca(TreeNode root, int p, int q) {
+    if(p > q) {
+      return lca(root, q, p);
+    }
+    while(root.key < p || root.key > q) {
+      if(root.key < p) {
+        root = root.right;
+      } else {
+        root = root.left;
+      }
+    }
+    return root;
+  }
+}
+```

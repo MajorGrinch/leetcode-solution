@@ -26,3 +26,26 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public List<List<Integer>> allPairs(int[] array, int target) {
+    Map<Integer, List<Integer>> idxMap = new HashMap<>();
+    List<List<Integer>> res = new ArrayList<>();
+    for(int i = 0; i < array.length; i++) {
+      int v1 = array[i];
+      int v2 = target - v1;
+      if(idxMap.containsKey(v2)) {
+        for(int idx: idxMap.get(v2)) {
+          res.add(Arrays.asList(idx, i));
+        }
+      }
+      idxMap.putIfAbsent(v1, new ArrayList<>());
+      idxMap.get(v1).add(i);
+    }
+    return res;
+  }
+}
+```
