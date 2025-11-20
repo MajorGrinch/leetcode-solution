@@ -47,3 +47,32 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public TreeNode buildTree(int[] preorder, int[] inorder) {
+        Map<Integer, Integer> inorderIdxMap = new HashMap<>();
+        for (int i = 0; i < inorder.length; i++) {
+            inorderIdxMap.put(inorder[i], i);
+        }
+        return helper(preorder, 0, inorder, 0, inorder.length - 1, inorderIdxMap);
+    }
+
+    private TreeNode helper(int[] preorder, int pl, int[] inorder, int il, int ir,
+            Map<Integer, Integer> inorderIdxMap) {
+        if (il > ir) {
+            return null;
+        }
+        if (il == ir) {
+            return new TreeNode(inorder[il]);
+        }
+        TreeNode node = new TreeNode(preorder[pl]);
+        int inorderIdx = inorderIdxMap.get(node.val);
+        node.left = helper(preorder, pl + 1, inorder, il, inorderIdx - 1, inorderIdxMap);
+        node.right = helper(preorder, inorderIdx - il + 1 + pl, inorder, inorderIdx + 1, ir, inorderIdxMap);
+        return node;
+    }
+}
+```

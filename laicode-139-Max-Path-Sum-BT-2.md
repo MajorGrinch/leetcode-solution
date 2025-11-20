@@ -25,3 +25,25 @@ public class Solution {
   }
 }
 ```
+
+也可以这样写
+
+```java
+public class Solution {
+  public int maxPathSum(TreeNode root) {
+    int[] res = {Integer.MIN_VALUE};
+    helper(root, res);
+    return res[0];
+  }
+
+  private int helper(TreeNode node, int[] res) {
+    if(node == null) {
+      return 0;
+    }
+    int left = Math.max(0, helper(node.left, res));
+    int right = Math.max(0, helper(node.right, res));
+    res[0] = Math.max(res[0], left + right + node.key);
+    return Math.max(left, right) + node.key;
+  }
+}
+```

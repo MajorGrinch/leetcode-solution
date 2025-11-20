@@ -45,9 +45,9 @@ public class Solution {
     if(node == null) {
       return;
     }
-    prefixSum = Math.max(prefixSum, 0);
-    res[0] = Math.max(res[0], prefixSum + node.key);
+    prefixSum = Math.max(0, prefixSum);
     prefixSum += node.key;
+    res[0] = Math.max(res[0], prefixSum);
     helper(node.left, prefixSum, res);
     helper(node.right, prefixSum, res);
   }

@@ -43,3 +43,28 @@ public class Solution {
   }
 }
 ```
+
+也可以这样写
+
+```java
+public class Solution {
+  public int maxPathSum(TreeNode root) {
+    int[] res = {Integer.MIN_VALUE};
+    helper(root, res);
+    return res[0];
+  }
+
+  private int helper(TreeNode node, int[] res) {
+    if(node == null) {
+      return 0;
+    }
+    int left = helper(node.left, res);
+    int right = helper(node.right, res);
+    if(node.left != null && node.right != null) {
+      res[0] = Math.max(res[0], left + right + node.key);
+      return Math.max(left, right) + node.key;
+    }
+    return node.left == null ? right + node.key : left + node.key;
+  }
+}
+```
