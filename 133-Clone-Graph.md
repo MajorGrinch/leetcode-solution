@@ -14,27 +14,27 @@ Space complexity: O(N)
 
 ```java
 class Solution {
-  public Node cloneGraph(Node node) {
-    if(node == null){
-      return null;
-    }
-    Map<Node, Node> oldNewMap = new HashMap<>();
-    Queue<Node> queue = new ArrayDeque<>();
-    queue.offer(node);
-    oldNewMap.put(node, new Node(node.val));
-    while (!queue.isEmpty()) {
-      Node curr = queue.poll();
-      Node newCurr = oldNewMap.get(curr);
-      for (Node nei : curr.neighbors) {
-        if (!oldNewMap.containsKey(nei)) {
-          oldNewMap.put(nei, new Node(nei.val));
-          queue.offer(nei);
+    public Node cloneGraph(Node node) {
+        if (node == null) {
+            return node;
         }
-        newCurr.neighbors.add(oldNewMap.get(nei));
-      }
+        Map<Node, Node> oldNewMap = new HashMap<>();
+        oldNewMap.put(node, new Node(node.val));
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.offer(node);
+        while (!queue.isEmpty()) {
+            Node curr = queue.poll();
+            Node currCopy = oldNewMap.get(curr);
+            for (Node nei : curr.neighbors) {
+                if (!oldNewMap.containsKey(nei)) {
+                    oldNewMap.put(nei, new Node(nei.val));
+                    queue.offer(nei);
+                }
+                currCopy.neighbors.add(oldNewMap.get(nei));
+            }
+        }
+        return oldNewMap.get(node);
     }
-    return oldNewMap.get(node);
-  }
 }
 ```
 
@@ -50,23 +50,23 @@ Space complexity: O(N). N levels call stack.
 
 ```java
 class Solution {
-  public Node cloneGraph(Node node) {
-    if (node == null) {
-      return null;
+    public Node cloneGraph(Node node) {
+        if (node == null) {
+            return node;
+        }
+        return copyNode(node, new HashMap<>());
     }
-    return cloneNode(node, new HashMap<>());
-  }
 
-  private Node cloneNode(Node node, Map<Node, Node> oldNewMap) {
-    if (oldNewMap.containsKey(node)) {
-      return oldNewMap.get(node);
+    private Node copyNode(Node node, Map<Node, Node> oldNewMap) {
+        if (oldNewMap.containsKey(node)) {
+            return oldNewMap.get(node);
+        }
+        Node nodeCopy = new Node(node.val);
+        oldNewMap.put(node, nodeCopy);
+        for (Node nei : node.neighbors) {
+            nodeCopy.neighbors.add(copyNode(nei, oldNewMap));
+        }
+        return nodeCopy;
     }
-    Node newNode = new Node(node.val);
-    oldNewMap.put(node, newNode);
-    for (Node nei : node.neighbors) {
-      newNode.neighbors.add(cloneNode(nei, oldNewMap));
-    }
-    return newNode;
-  }
 }
 ```

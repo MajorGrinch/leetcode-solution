@@ -10,7 +10,7 @@
 
 重复上述两件事情直到堆为空，最后我们就得到了一个有序的链表。
 
-Time complexity: O(N * logk) where k is the number of lists and N is the total number of nodes of all k lists.
+Time complexity: O(N * k * logk) where k is the number of lists and N is the total number of nodes of all k lists.
 
 Space complexity: O(k). Min heap will have k elements most of the time.
 
@@ -44,5 +44,37 @@ class Solution {
     }
     return dummyHead.next;
   }
+}
+```
+
+2025 code:
+
+```java
+class Solution {
+    public ListNode mergeKLists(ListNode[] lists) {
+        PriorityQueue<ListNode> minHeap = new PriorityQueue<>(new Comparator<ListNode>() {
+            @Override
+            public int compare(ListNode l1, ListNode l2) {
+                return Integer.compare(l1.val, l2.val);
+            }
+        });
+        for (ListNode node : lists) {
+            if (node != null) {
+                minHeap.offer(node);
+            }
+        }
+        ListNode dummy = new ListNode(0);
+        ListNode l = dummy;
+        while (!minHeap.isEmpty()) {
+            ListNode curr = minHeap.poll();
+            l.next = curr;
+            l = l.next;
+            curr = curr.next;
+            if (curr != null) {
+                minHeap.offer(curr);
+            }
+        }
+        return dummy.next;
+    }
 }
 ```

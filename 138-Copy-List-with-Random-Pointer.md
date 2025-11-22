@@ -36,3 +36,28 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public Node copyRandomList(Node head) {
+        Node l1 = new Node(0);
+        l1.next = head;
+        Node dummy = new Node(0);
+        Node l2 = dummy;
+        Map<Node, Node> oldNewMap = new HashMap<>();
+        while (l1.next != null) {
+            l2.next = oldNewMap.getOrDefault(l1.next, new Node(l1.next.val));
+            oldNewMap.putIfAbsent(l1.next, l2.next);
+            if (l1.next.random != null) {
+                l2.next.random = oldNewMap.getOrDefault(l1.next.random, new Node(l1.next.random.val));
+                oldNewMap.putIfAbsent(l1.next.random, l2.next.random);
+            }
+            l1 = l1.next;
+            l2 = l2.next;
+        }
+        return dummy.next;
+    }
+}
+```

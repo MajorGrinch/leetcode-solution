@@ -44,3 +44,49 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public int[] merge(int[][] arrayOfArrays) {
+    PriorityQueue<Coord> minHeap = new PriorityQueue<>(new Comparator<Coord>() {
+      @Override
+      public int compare(Coord c1, Coord c2) {
+        return Integer.compare(c1.val, c2.val);
+      }
+    });
+    int len = 0;
+    for(int i = 0; i < arrayOfArrays.length; i++) {
+      if(arrayOfArrays[i].length == 0) {
+        continue;
+      }
+      minHeap.offer(new Coord(i, 0, arrayOfArrays[i][0]));
+      len += arrayOfArrays[i].length;
+    }
+    int[] res = new int[len];
+    int count = 0;
+    while(!minHeap.isEmpty()) {
+      Coord curr = minHeap.poll();
+      res[count++] = curr.val;
+      int i = curr.i;
+      int j = curr.j;
+      if(j + 1 < arrayOfArrays[i].length) {
+        minHeap.offer(new Coord(i, j + 1, arrayOfArrays[i][j + 1]));
+      }
+    }
+    return res;
+  }
+
+  static class Coord {
+    int i;
+    int j;
+    int val;
+    Coord(int i, int j, int val) {
+      this.i = i;
+      this.j = j;
+      this.val = val;
+    }
+  }
+}
+```
