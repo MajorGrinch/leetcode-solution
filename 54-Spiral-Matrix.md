@@ -53,3 +53,49 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public List<Integer> spiralOrder(int[][] matrix) {
+        List<Integer> res = new ArrayList<>();
+        if (matrix.length == 0 || matrix[0].length == 0) {
+            return res;
+        }
+        helper(matrix, 0, matrix.length - 1, 0, matrix[0].length - 1, res);
+        return res;
+    }
+
+    private void helper(int[][] matrix, int rs, int re, int cs, int ce, List<Integer> res) {
+        if (rs > re || cs > ce) {
+            return;
+        }
+        if (rs == re) {
+            // only one row left and direction must be left to right
+            for (int i = cs; i <= ce; i++) {
+                res.add(matrix[rs][i]);
+            }
+        } else if (cs == ce) {
+            // only one column left and direction must be up to down
+            for (int i = rs; i <= re; i++) {
+                res.add(matrix[i][cs]);
+            }
+        } else {
+            for (int i = cs; i < ce; i++) {
+                res.add(matrix[rs][i]);
+            }
+            for (int i = rs; i < re; i++) {
+                res.add(matrix[i][ce]);
+            }
+            for (int i = ce; i > cs; i--) {
+                res.add(matrix[re][i]);
+            }
+            for (int i = re; i > rs; i--) {
+                res.add(matrix[i][cs]);
+            }
+            helper(matrix, rs + 1, re - 1, cs + 1, ce - 1, res);
+        }
+    }
+}
+```
