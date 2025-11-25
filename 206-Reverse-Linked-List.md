@@ -17,17 +17,18 @@ Space complexity: O(1)
 ```java
 class Solution {
     public ListNode reverseList(ListNode head) {
-        if(head == null || head.next == null){
+        if (head == null || head.next == null) {
             return head;
         }
-        ListNode curr = null, prev = null;
-        while(head != null){
-            curr = head;
-            head = head.next;
+        ListNode curr = head;
+        ListNode prev = null;
+        while (curr != null) {
+            ListNode next = curr.next;
             curr.next = prev;
             prev = curr;
+            curr = next;
         }
-        return curr;
+        return prev;
     }
 }
 ```

@@ -53,3 +53,49 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public int largestProduct(String[] dict) {
+    Arrays.sort(dict, new Comparator<String>() {
+      @Override
+      public int compare(String s1, String s2) {
+        return Integer.compare(s1.length(), s2.length());
+      }
+    });
+    Map<String, Integer> bitMaskMap = getBitMaskMap(dict);
+    int res = 0;
+    for(int i = dict.length - 1; i > 0; i--) {
+      for(int j = i - 1; j >= 0; j--) {
+        String iWord = dict[i];
+        String jWord = dict[j];
+        int product = iWord.length() * jWord.length();
+        if(res >= product) {
+          break;
+        }
+        int iMask = bitMaskMap.get(iWord);
+        int jMask = bitMaskMap.get(jWord);
+        if((iMask & jMask) == 0) {
+          res = product;
+        }
+      }
+    }
+    return res;
+  }
+
+  private Map<String, Integer> getBitMaskMap(String[] dict) {
+    Map<String, Integer> bitMaskMap = new HashMap<>();
+    for(String word: dict) {
+      int mask = 0;
+      for(int i = 0; i < word.length(); i++) {
+        char c = word.charAt(i);
+        mask |= 1 << (c - 'a');
+      }
+      bitMaskMap.put(word, mask);
+    }
+    return bitMaskMap;
+  }
+}
+```

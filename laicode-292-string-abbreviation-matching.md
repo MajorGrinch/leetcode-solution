@@ -44,3 +44,35 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public boolean match(String input, String pattern) {
+    int i = 0;
+    int j = 0;
+    while(i < input.length() && j < pattern.length()) {
+      if(isDigit(pattern.charAt(j))) {
+        int count = 0;
+        while(j < pattern.length() && isDigit(pattern.charAt(j))) {
+          count = count * 10 + pattern.charAt(j) - '0';
+          j++;
+        }
+        i += count;
+      } else {
+        if(input.charAt(i) != pattern.charAt(j)) {
+          return false;
+        }
+        i++;
+        j++;
+      }
+    }
+    return i == input.length() && j == pattern.length();
+  }
+
+  private boolean isDigit(char c) {
+    return '0' <= c && c <= '9';
+  }
+}
+```

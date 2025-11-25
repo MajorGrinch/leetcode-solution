@@ -88,3 +88,39 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public List<Integer> commonElementsInKSortedArrays(List<List<Integer>> input) {
+    List<Integer> res = input.get(0);
+    int count = res.size();
+    for(int i = 1; i < input.size(); i++) {
+      count = common(res, count, input.get(i));
+    }
+    return res.subList(0, count);
+  }
+
+  private int common(List<Integer> res, int resLen, List<Integer> l2) {
+    if(resLen == 0 || l2.size() == 0) {
+      return 0;
+    }
+    int i = 0;
+    int j = 0;
+    int k = 0;
+    while(i < resLen && j < l2.size()) {
+      if(res.get(i) == l2.get(j)) {
+        res.set(k++, res.get(i));
+        i++;
+        j++;
+      } else if(res.get(i) < l2.get(j)) {
+        i++;
+      } else {
+        j++;
+      }
+    }
+    return k;
+  }
+}
+```

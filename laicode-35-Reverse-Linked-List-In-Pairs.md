@@ -55,17 +55,20 @@ public class Solution {
 ```java
 public class Solution {
   public ListNode reverseInPairs(ListNode head) {
+    if(head == null || head.next == null) {
+      return head;
+    }
     ListNode dummy = new ListNode(0);
     dummy.next = head;
-    ListNode prevTail = dummy;
-    while(head != null && head.next != null) {
-      ListNode currHead = head;
-      ListNode nextHead = head.next.next;
-      head = nextHead;
-      prevTail.next = currHead.next;
-      currHead.next.next = currHead;
-      currHead.next = nextHead;
-      prevTail = currHead;
+    ListNode curr = head;
+    ListNode prev = dummy;
+    while(curr != null && curr.next != null) {
+      ListNode next = curr.next.next;
+      prev.next = curr.next;
+      curr.next.next = curr;
+      curr.next = next;
+      prev = curr;
+      curr = next;
     }
     return dummy.next;
   }
