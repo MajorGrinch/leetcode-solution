@@ -43,3 +43,39 @@ class Solution {
   }
 }
 ```
+
+2021年写的题解不知道叽里咕噜的在说什么，这里重新解释一下。
+
+我们遍历每一个 i，然后每一个 i 都需要入栈。但是，这个 stack 保持一个性质，从栈底到栈顶的 index 对应的高度，保持升序。如果当前栈顶 index 对应的高度高于当前 i 的高度，那么我们需要不断弹出直到低于 i 的高度为止。那么这个性质会带来一个好处，是什么呢？stack 里面相邻的两个元素对应的坐标 i1 和 i2，height[i1] < height[i2]，并且任意 (i1, i2) 之间的坐标 `i`都满足 height[i] >= height[i2]。
+
+那么我们遍历 i 的时候，就有两种情况
+1. 当前的 height[i] 比栈顶的 index 对应的高度要高，性质不会被破坏，i 正常入栈。
+2. 当前的 height[i] 比栈顶的 index 对应的高度要矮，性质会被破坏，我们要弹出所有不矮于 height[i] 的坐标。每当弹出栈顶的时候，以栈顶 index 对应的高度为高的矩形，右边界是当前的 i，左边界是次栈顶对应的 index，both exclusive。计算对应的矩形面积并且试图更新 global max。
+
+自带的数组需要进行扩充，左右各放置一个边界。左边边界高度为-1，右边边界高度为 0。为什么左边界要为-1 呢？因为要比右边界更低，这样不会左边界就不会从栈里面弹出去了。
+
+2025 code:
+
+```java
+class Solution {
+    public int largestRectangleArea(int[] heights) {
+        int[] histogram = new int[heights.length + 2];
+        histogram[0] = -1;
+        for (int i = 0; i < heights.length; i++) {
+            histogram[i + 1] = heights[i];
+        }
+        histogram[histogram.length - 1] = 0;
+        Deque<Integer> stack = new ArrayDeque<>();
+        int res = 0;
+        for (int i = 0; i < histogram.length; i++) {
+            while (!stack.isEmpty() && histogram[stack.peek()] >= histogram[i]) {
+                int h = histogram[stack.pop()];
+                int l = i - 1 - stack.peek();
+                res = Math.max(res, h * l);
+            }
+            stack.push(i);
+        }
+        return res;
+    }
+}
+```

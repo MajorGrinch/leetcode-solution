@@ -34,3 +34,34 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public int kth(int[] a, int[] b, int k) {
+    return kth(a, b, k, 0, 0);
+  }
+
+  private int kth(int[] a, int[] b, int k, int aStart, int bStart) {
+    if(aStart >= a.length) {
+      return b[bStart + k - 1];
+    }
+    if(bStart >= b.length) {
+      return a[aStart + k - 1];
+    }
+    if(k == 1) {
+      return Math.min(a[aStart], b[bStart]);
+    }
+    int aMidIndex = Math.min(k / 2 + aStart - 1, a.length - 1);
+    int bMidIndex = Math.min(k / 2 + bStart - 1, b.length - 1);
+    int aMidVal = a[aMidIndex];
+    int bMidVal = b[bMidIndex];
+    if(aMidVal < bMidVal) {
+      return kth(a, b, k - k/2, aMidIndex + 1, bStart);
+    } else {
+      return kth(a, b, k - k/2, aStart, bMidIndex + 1);
+    }
+  }
+}
+```

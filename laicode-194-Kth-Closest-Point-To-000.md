@@ -67,3 +67,54 @@ public class Solution {
   }
 }
 ```
+
+也可以这样写。
+
+```java
+public class Solution {
+  public List<Integer> closest(int[] a, int[] b, int[] c, int k) {
+    PriorityQueue<Tuple> minHeap = new PriorityQueue<>();
+    boolean[][][] vis = new boolean[a.length][b.length][c.length];
+    vis[0][0][0] = true;
+    minHeap.offer(new Tuple(0, 0, 0, a[0] * a[0] + b[0] * b[0] + c[0] * c[0]));
+    for(int i = 0; i < k - 1; i++) {
+      Tuple curr = minHeap.poll();
+      int ai = curr.ai;
+      int bi = curr.bi;
+      int ci = curr.ci;
+      if(ai + 1 < a.length && !vis[ai + 1][bi][ci]) {
+        minHeap.offer(new Tuple(ai + 1, bi, ci, a[ai + 1] * a[ai + 1] + b[bi] * b[bi] + c[ci] * c[ci]));
+        vis[ai + 1][bi][ci] = true;
+      }
+      if(bi + 1 < b.length && !vis[ai][bi + 1][ci]) {
+        minHeap.offer(new Tuple(ai, bi + 1, ci, a[ai] * a[ai] + b[bi + 1] * b[bi + 1] + c[ci] * c[ci]));
+        vis[ai][bi + 1][ci] = true;
+      }
+      if(ci + 1 < c.length && !vis[ai][bi][ci + 1]) {
+        minHeap.offer(new Tuple(ai, bi, ci + 1, a[ai] * a[ai] + b[bi] * b[bi] + c[ci + 1] * c[ci + 1]));
+        vis[ai][bi][ci + 1] = true;
+      }
+    }
+    Tuple kth = minHeap.peek();
+    return Arrays.asList(a[kth.ai], b[kth.bi], c[kth.ci]);
+  }
+
+  class Tuple implements Comparable<Tuple> {
+    int ai;
+    int bi;
+    int ci;
+    int distance;
+
+    Tuple(int ai, int bi, int ci, int distance) {
+      this.ai = ai;
+      this.bi = bi;
+      this.ci = ci;
+      this.distance = distance;
+    }
+
+    public int compareTo(Tuple another) {
+      return Integer.compare(this.distance, another.distance);
+    }
+  }
+}
+```
