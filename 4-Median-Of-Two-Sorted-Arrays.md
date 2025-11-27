@@ -41,3 +41,37 @@ class Solution {
   }
 }
 ```
+
+```java
+class Solution {
+    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+        int len = nums1.length + nums2.length;
+        if (len % 2 == 1) {
+            return kth(nums1, nums2, len / 2 + 1, 0, 0);
+        } else {
+            int mid1 = kth(nums1, nums2, len / 2, 0, 0);
+            int mid2 = kth(nums1, nums2, len / 2 + 1, 0, 0);
+            return (mid1 + mid2) / 2.0;
+        }
+    }
+
+    private int kth(int[] nums1, int[] nums2, int k, int l1, int l2) {
+        if (l1 >= nums1.length) {
+            return nums2[l2 + k - 1];
+        }
+        if (l2 >= nums2.length) {
+            return nums1[l1 + k - 1];
+        }
+        if (k == 1) {
+            return Math.min(nums1[l1], nums2[l2]);
+        }
+        int midIdx1 = Math.min(nums1.length - 1, l1 + k / 2 - 1);
+        int midIdx2 = Math.min(nums2.length - 1, l2 + k / 2 - 1);
+        if (nums1[midIdx1] < nums2[midIdx2]) {
+            return kth(nums1, nums2, k - midIdx1 + l1 - 1, midIdx1 + 1, l2);
+        } else {
+            return kth(nums1, nums2, k - midIdx2 + l2 - 1, l1, midIdx2 + 1);
+        }
+    }
+}
+```

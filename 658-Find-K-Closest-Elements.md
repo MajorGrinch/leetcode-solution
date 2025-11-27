@@ -115,3 +115,45 @@ class Solution {
     }
 }
 ```
+
+也可以这么写，其实就是跳过了 `x <= arr[0]` 和 `arr[arr.length - 1] <= x` 这两种情况的检验，因为后续也能处理好。代码更少，更简洁一些。
+
+```java
+class Solution {
+    public List<Integer> findClosestElements(int[] arr, int k, int x) {
+        int firstGEIdx = firstGE(arr, x);
+        int l = firstGEIdx - 1;
+        int r = firstGEIdx;
+        while (r - l - 1 < k) {
+            if (l < 0) {
+                r++;
+            } else if (r >= arr.length) {
+                l--;
+            } else if (Math.abs(arr[l] - x) > Math.abs(arr[r] - x)) {
+                r++;
+            } else {
+                l--;
+            }
+        }
+        List<Integer> res = new ArrayList<>();
+        for (int i = l + 1; i < r; i++) {
+            res.add(arr[i]);
+        }
+        return res;
+    }
+
+    private int firstGE(int[] arr, int target) {
+        int l = 0;
+        int r = arr.length - 1;
+        while (l < r) {
+            int mid = l + (r - l) / 2;
+            if (arr[mid] < target) {
+                l = mid + 1;
+            } else {
+                r = mid;
+            }
+        }
+        return l;
+    }
+}
+```
