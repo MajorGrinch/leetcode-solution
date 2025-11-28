@@ -29,3 +29,38 @@ class FirstUnique {
   }
 }
 ```
+
+2025 code:
+
+```java
+class FirstUnique {
+    private Map<Integer, Integer> freqMap;
+    private Queue<Integer> unique;
+
+    public FirstUnique(int[] nums) {
+        freqMap = new HashMap<>();
+        unique = new LinkedList<>();
+        for (int num : nums) {
+            this.add(num);
+        }
+    }
+
+    public int showFirstUnique() {
+        if (this.unique.isEmpty()) {
+            return -1;
+        }
+        return this.unique.peek();
+    }
+
+    public void add(int value) {
+        int count = this.freqMap.getOrDefault(value, 0);
+        this.freqMap.put(value, ++count);
+        if (count == 1) {
+            this.unique.offer(value);
+        }
+        while (!unique.isEmpty() && this.freqMap.get(unique.peek()) > 1) {
+            unique.poll();
+        }
+    }
+}
+```
