@@ -70,3 +70,30 @@ class Solution {
   }
 }
 ```
+
+2025 code 这次真正做到优化空间，我觉得 2021 年那次并不是真正的优化空间。
+
+```java
+class Solution {
+    public int longestCommonSubsequence(String text1, String text2) {
+        int m = text1.length();
+        int n = text2.length();
+        int[] prevLCS = new int[n + 1];
+        int[] currLCS = new int[n + 1];
+        for (int i = 1; i <= m; i++) {
+            Arrays.fill(currLCS, 0);
+            for (int j = 1; j <= n; j++) {
+                if (text1.charAt(i - 1) == text2.charAt(j - 1)) {
+                    currLCS[j] = prevLCS[j - 1] + 1;
+                } else {
+                    currLCS[j] = Math.max(prevLCS[j], currLCS[j - 1]);
+                }
+            }
+            int[] temp = prevLCS;
+            prevLCS = currLCS;
+            currLCS = temp;
+        }
+        return prevLCS[n];
+    }
+}
+```

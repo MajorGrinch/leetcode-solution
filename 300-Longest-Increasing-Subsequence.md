@@ -90,3 +90,43 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        int n = nums.length;
+        if (n <= 1) {
+            return n;
+        }
+        int[] lisEndValue = new int[n + 1];
+        lisEndValue[1] = nums[0];
+        int resLen = 1;
+        for (int i = 1; i < n; i++) {
+            int lisLenEndWithI = largestSmaller(lisEndValue, 1, resLen, nums[i]) + 1;
+            lisEndValue[lisLenEndWithI] = nums[i];
+            resLen = Math.max(resLen, lisLenEndWithI);
+        }
+        return resLen;
+    }
+
+    private int largestSmaller(int[] nums, int l, int r, int target) {
+        while (r - l > 1) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] < target) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        if (nums[r] < target) {
+            return r;
+        } else if (nums[l] < target) {
+            return l;
+        } else {
+            return l - 1;
+        }
+    }
+}
+```

@@ -33,3 +33,29 @@ public class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+public class Solution {
+  public int canWin(int[] nums) {
+    int n = nums.length;
+    int[][] res = new int[n][n];
+    for(int i = 0; i < n; i++) {
+      res[i][i] = nums[i];
+      if(i + 1 < n) {
+        res[i][i + 1] = Math.max(nums[i], nums[i + 1]);
+      }
+    }
+    for(int size = 3; size <= n; size++) {
+      for(int i = 0; i + size - 1 < n; i++) {
+        int j = i + size - 1;
+        int takeLeft = nums[i] + (nums[i + 1] > nums[j] ?  res[i + 2][j] : res[i + 1][j - 1]);
+        int takeRight = nums[j] + (nums[i] > nums[j - 1] ? res[i + 1][j - 1] : res[i][j - 2]);
+        res[i][j] = Math.max(takeLeft, takeRight);
+      }
+    }
+    return res[0][n - 1];
+  }
+}
+```
