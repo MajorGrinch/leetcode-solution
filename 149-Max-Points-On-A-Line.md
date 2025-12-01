@@ -41,7 +41,7 @@ class Solution {
         slopeCount.put(k, slopeCount.getOrDefault(k, 0) + 1);
         sloped = Math.max(sloped, slopeCount.get(k));
       }
-      int localMax = Math.max(sloped, Math.max(overlapped, vertical)) + 1;
+      int localMax = Math.max(sloped, vertical) + overlapped + 1;
       res = Math.max(res, localMax);
     }
     return res;

@@ -71,3 +71,65 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public List<String> findWords(char[][] board, String[] words) {
+        int m = board.length;
+        int n = board[0].length;
+        boolean[][] vis = new boolean[m][n];
+        List<String> res = new ArrayList<>();
+        TrieNode root = buildTrie(words);
+        for (int r = 0; r < m; r++) {
+            for (int c = 0; c < n; c++) {
+                dfs(board, vis, root, r, c, res);
+            }
+        }
+        return res;
+    }
+
+    private void dfs(char[][] board, boolean[][] vis, TrieNode node, int r, int c, List<String> res) {
+        if (r < 0 || r >= board.length || c < 0 || c >= board[0].length || vis[r][c]) {
+            return;
+        }
+        char ch = board[r][c];
+        node = node.next[ch - 'a'];
+        if(node == null) {
+            return;
+        }
+        if (node.word != null) {
+            res.add(node.word);
+            node.word = null;
+        }
+        vis[r][c] = true;
+        dfs(board, vis, node, r - 1, c, res);
+        dfs(board, vis, node, r + 1, c, res);
+        dfs(board, vis, node, r, c - 1, res);
+        dfs(board, vis, node, r, c + 1, res);
+        vis[r][c] = false;
+    }
+
+    private TrieNode buildTrie(String[] words) {
+        TrieNode root = new TrieNode();
+        for (String word : words) {
+            TrieNode node = root;
+            for (int i = 0; i < word.length(); i++) {
+                int idx = word.charAt(i) - 'a';
+                if (node.next[idx] == null) {
+                    node.next[idx] = new TrieNode();
+                }
+                node = node.next[idx];
+            }
+            node.word = word;
+        }
+        return root;
+    }
+
+    class TrieNode {
+        String word;
+        TrieNode[] next = new TrieNode[26];
+    }
+}
+```
