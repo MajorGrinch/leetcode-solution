@@ -1,7 +1,5 @@
 # 704. Binary Search
 
-## CH
-
 简单的二分法搜索题。
 
 我们先假定target出现在nums数组里，那么循环不变量(loop invariant)是：target出现在[l, r]这个闭区间里。
@@ -32,6 +30,33 @@ class Solution {
             }
         }
         return nums[l] == target ? l : -1;
+    }
+}
+```
+
+2025 update：把循环终止条件变成 l > r，loop invariant 维持不变。如果 target 出现在 `[l, r]` 里，那中途就应该被找到然后返回。如果循环结束了都没找到，那意思很明确，就是没有，那直接返回 -1。
+
+2025 code:
+
+```java
+class Solution {
+    public int search(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return -1;
+        }
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return -1;
     }
 }
 ```

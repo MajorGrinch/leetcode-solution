@@ -45,3 +45,42 @@ class Solution {
   }
 }
 ```
+
+2025 code:
+
+```java
+class Solution {
+    public boolean exist(char[][] board, String word) {
+        int m = board.length;
+        int n = board[0].length;
+        for (int r = 0; r < m; r++) {
+            for (int c = 0; c < n; c++) {
+                if (dfs(board, word, r, c, 0)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private boolean dfs(char[][] board, String word, int r, int c, int index) {
+        if (index == word.length()) {
+            return true;
+        }
+        if (r < 0 || r >= board.length || c < 0 || c >= board[0].length || board[r][c] != word.charAt(index)) {
+            return false;
+        }
+        char ch = board[r][c];
+        int[] dr = { -1, 1, 0, 0 };
+        int[] dc = { 0, 0, -1, 1 };
+        board[r][c] = '#';
+        for (int i = 0; i < dr.length; i++) {
+            if (dfs(board, word, r + dr[i], c + dc[i], index + 1)) {
+                return true;
+            }
+        }
+        board[r][c] = ch;
+        return false;
+    }
+}
+```

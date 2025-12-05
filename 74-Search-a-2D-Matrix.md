@@ -1,7 +1,5 @@
 # 74. Search a 2D Matrix
 
-## CH
-
 还是二分搜索，分两步走。
 
 第一步先找到哪一行有可能存在target，这里我们预设的Loop invariant是target一定出现在[l, r]这些行里。如果`matrix[mid][0] <= target && target <= matrix[mid][n-1]` 的话，那么target就在这一行，直接进去再二分找。如果matrix[mid][0] > target，那么target只有可能在[l, mid - 1]这些行里。如果matrix[mid][n - 1] > target，那么target只可能在[mid + 1, r]这些行里。这样就可以维持loop invariant。
@@ -71,6 +69,49 @@ class Solution {
             }
         }
         return nums[l] == target;
+    }
+}
+```
+
+2025 code:
+
+```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+            return false;
+        }
+        int m = matrix.length;
+        int n = matrix[0].length;
+        int l = 0;
+        int r = m - 1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (matrix[mid][0] <= target && target <= matrix[mid][n - 1]) {
+                return binSearch(matrix[mid], target) != -1;
+            } else if (target < matrix[mid][0]) {
+                r = mid - 1;
+            } else {
+                l = mid + 1;
+            }
+        }
+        return false;
+    }
+
+    private int binSearch(int[] nums, int target) {
+        int l = 0;
+        int r = nums.length - 1;
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (nums[mid] < target) {
+                l = mid + 1;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return -1;
     }
 }
 ```
