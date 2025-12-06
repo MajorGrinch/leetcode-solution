@@ -65,92 +65,49 @@ class Solution {
 ```java
 class Solution {
     public List<Integer> findClosestElements(int[] arr, int k, int x) {
-        if (arr == null || arr.length == 0 || k == 0) {
-            return new ArrayList<>();
-        }
         List<Integer> res = new ArrayList<>();
-
-        if (arr.length <= k) {
-            for (int i = 0; i < arr.length; i++)
-                res.add(arr[i]);
+        if (arr.length == 0 || k == 0) {
             return res;
         }
-
-        if (x <= arr[0]) {
-            for (int i = 0; i < k; i++)
-                res.add(arr[i]);
-        } else if (arr[arr.length - 1] <= x) {
-            for (int i = arr.length - k; i < arr.length; i++)
-                res.add(arr[i]);
-        } else {
-            int pos = firstGE(arr, x);
-            int low = Math.max(0, pos - k);
-            int high = Math.min(arr.length - 1, pos + k - 1);
-            while (high - low > k - 1) {
-                if (Math.abs(arr[low] - x) <= Math.abs(arr[high] - x)) {
-                    high--;
-                } else {
-                    low++;
-                }
+        int n = arr.length;
+        if (arr[n - 1] < x) {
+            for (int i = 0; i < k; i++) {
+                res.add(arr[n - k + i]);
             }
-            for (int i = low; i <= high; i++)
-                res.add(arr[i]);
+            return res;
         }
-        return res;
-    }
-
-    private int firstGE(int[] arr, int x) {
-        int l = 0;
-        int r = arr.length - 1;
-        while (l < r) {
-            int mid = l + (r - l) / 2;
-            if (x <= arr[mid]) {
-                r = mid;
-            } else {
-                // nums[mid] < target
-                l = mid + 1;
-            }
-        }
-        return l;
-    }
-}
-```
-
-也可以这么写，其实就是跳过了 `x <= arr[0]` 和 `arr[arr.length - 1] <= x` 这两种情况的检验，因为后续也能处理好。代码更少，更简洁一些。
-
-```java
-class Solution {
-    public List<Integer> findClosestElements(int[] arr, int k, int x) {
         int firstGEIdx = firstGE(arr, x);
-        int l = firstGEIdx - 1;
         int r = firstGEIdx;
+        int l = r - 1;
         while (r - l - 1 < k) {
             if (l < 0) {
                 r++;
-            } else if (r >= arr.length) {
+            } else if (r > n - 1) {
                 l--;
-            } else if (Math.abs(arr[l] - x) > Math.abs(arr[r] - x)) {
-                r++;
+            } else if (Math.abs(arr[l] - x) <= Math.abs(arr[r] - x)) {
+                l--;
             } else {
-                l--;
+                r++;
             }
         }
-        List<Integer> res = new ArrayList<>();
         for (int i = l + 1; i < r; i++) {
             res.add(arr[i]);
         }
         return res;
     }
 
-    private int firstGE(int[] arr, int target) {
+    /**
+    Gurantee at least one element >= x
+     */
+    private int firstGE(int[] arr, int x) {
         int l = 0;
         int r = arr.length - 1;
         while (l < r) {
             int mid = l + (r - l) / 2;
-            if (arr[mid] < target) {
-                l = mid + 1;
-            } else {
+            if (arr[mid] >= x) {
                 r = mid;
+            } else {
+                l = mid + 1;
             }
         }
         return l;

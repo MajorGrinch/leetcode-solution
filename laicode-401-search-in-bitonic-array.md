@@ -11,37 +11,40 @@ assumption:
 ```java
 public class Solution {
   public int search(int[] array, int target) {
-    // Write your solution here
-    if(array == null || array.length == 0) return -1;
+    if(array == null || array.length == 0) {
+      return -1;
+    }
     int l = 0;
     int r = array.length - 1;
+    // first peak
     while(l < r) {
       int mid = l + (r - l) / 2;
       if(array[mid] < array[mid + 1]) {
         l = mid + 1;
       } else {
-        // array[mid] > array[mid + 1]
         r = mid;
       }
     }
     int peak = l;
+    int res = binSearchAsc(array, target, 0, peak);
+    return res == -1 ? binSearchDes(array, target, peak + 1, array.length - 1) : res;
+  }
 
-    l = 0;
-    r = peak;
+  private int binSearchAsc(int[] array, int target, int l, int r) {
     while(l <= r) {
       int mid = l + (r - l) / 2;
       if(array[mid] == target) {
         return mid;
-      } else if (array[mid] < target){
+      } else if(array[mid] < target) {
         l = mid + 1;
       } else {
         r = mid - 1;
       }
     }
+    return -1;
+  }
 
-    l = peak + 1;
-    r = array.length - 1;
-
+  private int binSearchDes(int[] array, int target, int l, int r) {
     while(l <= r) {
       int mid = l + (r - l) / 2;
       if(array[mid] == target) {
@@ -52,7 +55,6 @@ public class Solution {
         l = mid + 1;
       }
     }
-
     return -1;
   }
 }
