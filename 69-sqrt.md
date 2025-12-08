@@ -7,28 +7,21 @@
 ```java
 class Solution {
     public int mySqrt(int x) {
-        if (x < 2)
+        if (x <= 1) {
             return x;
-
+        }
         int l = 1;
         int r = x / 2;
         while (r - l > 1) {
             int mid = l + (r - l) / 2;
-            long sq = (long) mid * mid;
-            if (sq == x) {
-                return (int) mid;
-            } else if (sq < x) {
+            long sqrt = (long) mid * mid;
+            if (sqrt <= x) {
                 l = mid;
             } else {
-                // x < sq
                 r = mid - 1;
             }
         }
-        if ((long) r * r <= x) {
-            return r;
-        } else {
-            return l;
-        }
+        return (long) r * r > x ? l : r;
     }
 }
 ```

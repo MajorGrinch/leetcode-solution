@@ -31,3 +31,35 @@ class Solution {
   }
 }
 ```
+
+2025 update:
+
+和[33. Search in Rotated Sorted Array](33-Search-in-Rotated-Sorted-Array.md)类似，采用一般的二分搜索，找顶点。找到顶点之后，右边那个就是最小的元素。不过我们首先要保证这题有悬崖，如果没有悬崖的话，就没必要费劲找了。
+
+
+```java
+class Solution {
+    public int findMin(int[] nums) {
+        int n = nums.length;
+        if (n == 1) {
+            return nums[0];
+        }
+        if (nums[0] < nums[n - 1]) {
+            // no cliff
+            return nums[0];
+        }
+        int l = 0;
+        int r = nums.length - 1;
+        int pivot = nums[0];
+        while (r - l > 1) {
+            int mid = l + (r - l) / 2;
+            if (pivot < nums[mid]) {
+                l = mid;
+            } else {
+                r = mid - 1;
+            }
+        }
+        return nums[l] <= nums[r] ? nums[r + 1] : nums[r];
+    }
+}
+```

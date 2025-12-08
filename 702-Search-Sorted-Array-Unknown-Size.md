@@ -9,40 +9,23 @@
 二分搜索的循环不变量是，target始终在[l, r]这个区间里。如果能找得到，那么一定会在循环结束之前找到并返回。如果循环顺利结束，l > r，说明没找到。
 
 ```java
-/**
- * // This is ArrayReader's API interface.
- * // You should not implement it, or speculate about its implementation
- * interface ArrayReader {
- *     public int get(int index) {}
- * }
- */
-
 class Solution {
     public int search(ArrayReader reader, int target) {
-        if(reader == null){
-            return -1;
-        }
-        if(reader.get(0) >= 10000){
-            return -1;
-        }
-        int l = 0, r = 1;
-        while(reader.get(r) < target){
+        int l = 0;
+        int r = 1;
+        while (reader.get(r) != Integer.MAX_VALUE && reader.get(r) < target) {
             l = r;
             r *= 2;
         }
-        return binarySearch(reader, l, r, target);
-    }
-
-    private int binarySearch(ArrayReader reader, int lb, int rb, int target){
-        int l = lb, r = rb;
-        while(l <= r){
-            int mid = l + (r-l >>1);
-            int midV = reader.get(mid);
-            if(midV == target){
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (reader.get(mid) == Integer.MAX_VALUE) {
+                r = mid - 1;
+            } else if (reader.get(mid) == target) {
                 return mid;
-            }else if(midV < target){
+            } else if (reader.get(mid) < target) {
                 l = mid + 1;
-            }else{
+            } else {
                 r = mid - 1;
             }
         }

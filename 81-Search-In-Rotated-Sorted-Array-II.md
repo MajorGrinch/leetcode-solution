@@ -67,23 +67,22 @@ class Solution {
             if (nums[mid] == target) {
                 return true;
             }
-            int pivot = nums[l];
-            if (nums[mid] > pivot || nums[mid] > nums[r]) {
-                // mid is before the cliff, [l, mid] should be increasing
+            if (nums[l] < nums[mid] || nums[mid] > nums[r]) {
+                // mid is before cliff
                 if (nums[l] <= target && target < nums[mid]) {
                     r = mid - 1;
                 } else {
                     l = mid + 1;
                 }
-            } else if (nums[mid] < pivot || nums[mid] < nums[r]) {
-                // mid is after the cliff, [mid, r] should be increasing
+            } else if (nums[mid] < nums[r] || nums[l] > nums[mid]) {
+                // mid is after cliff
                 if (nums[mid] < target && target <= nums[r]) {
                     l = mid + 1;
                 } else {
                     r = mid - 1;
                 }
             } else {
-                // nums[mid] == nums[l] == nums[r] != target
+                // nums[l] == nums[mid] == nums[r]
                 r--;
             }
         }

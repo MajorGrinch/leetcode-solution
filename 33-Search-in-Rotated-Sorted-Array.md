@@ -9,8 +9,8 @@ Clarification:
 
 我们选定首个元素`nums[0]`作为`pivot`，二分搜索时候分类讨论：
 + `nums[mid] == target`，找到了，直接返回`mid`
-+ `nums[mid] >= pivot`，说明`mid`在断崖左侧，也就是`[l, mid)`是完全升序的。如果`target`落在`[l, mid)`里的话，就往`[l, mid)`缩。否则就往`(mid, r]`缩。
-+ `nums[mid] < pivot`，说明`mid`在断崖右侧，也就是说`(mid, r]`是完全升序的。如果`target`落在`(mid, r]`里的话，就往`(mid, r]`缩。否则就往`[l, mid)`缩。
++ `nums[0] <= nums[mid]`，说明`mid`在断崖左侧，也就是`[l, mid]`是完全升序的。如果`target`落在`[l, mid)`里的话，就往`[l, mid)`缩。否则就往`(mid, r]`缩。
++ `nums[0] > nums[mid]`，说明`mid`在断崖右侧，也就是说`[mid, r]`是完全升序的。如果`target`落在`(mid, r]`里的话，就往`(mid, r]`缩。否则就往`[l, mid)`缩。
 
 Time complexity: O(logn)
 
@@ -18,33 +18,34 @@ Space complexity: O(1)
 
 ```java
 class Solution {
-  public int search(int[] nums, int target) {
-    if (nums.length == 0) {
-      return -1;
-    }
-    int pivot = nums[0];
-    int l = 0, r = nums.length - 1;
-    while (l <= r) {
-      int mid = l + (r - l >> 1);
-      if (nums[mid] == target) {
-        return mid;
-      } else if (nums[mid] >= pivot) {
-        // mid is before the cliff
-        if (nums[l] <= target && target < nums[mid]) {
-          r = mid - 1;
-        } else {
-          l = mid + 1;
+    public int search(int[] nums, int target) {
+        if (nums == null || nums.length == 0) {
+            return -1;
         }
-      } else {
-        // mid is after the cliff
-        if (nums[mid] < target && target <= nums[r]) {
-          l = mid + 1;
-        } else {
-          r = mid - 1;
+        int l = 0;
+        int r = nums.length - 1;
+        int pivot = nums[0];
+        while (l <= r) {
+            int mid = l + (r - l) / 2;
+            if (nums[mid] == target) {
+                return mid;
+            } else if (pivot <= nums[mid]) {
+                // nums[0] <= nums[mid] ==> mid before cliff
+                if (nums[l] <= target && target < nums[mid]) {
+                    r = mid - 1;
+                } else {
+                    l = mid + 1;
+                }
+            } else {
+                // nums[0] > nums[mid] ==> mid after cliff
+                if (nums[mid] < target && target <= nums[r]) {
+                    l = mid + 1;
+                } else {
+                    r = mid - 1;
+                }
+            }
         }
-      }
+        return -1;
     }
-    return -1;
-  }
 }
 ```
