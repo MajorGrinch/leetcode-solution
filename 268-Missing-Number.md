@@ -95,3 +95,18 @@ class Solution {
   }
 }
 ```
+
+也可以这样写
+
+```java
+class Solution {
+    public int missingNumber(int[] nums) {
+        int res = 0;
+        int n = nums.length;
+        for (int i = 1; i <= n; i++) {
+            res ^= i ^ nums[i - 1];
+        }
+        return res;
+    }
+}
+```
