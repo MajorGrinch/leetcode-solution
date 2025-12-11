@@ -96,37 +96,30 @@ class Solution {
 ```java
 class Solution {
     public int lengthOfLIS(int[] nums) {
-        int n = nums.length;
-        if (n <= 1) {
-            return n;
+        if (nums.length <= 1) {
+            return nums.length;
         }
-        int[] lisEndValue = new int[n + 1];
+        int[] lisEndValue = new int[nums.length + 1];
         lisEndValue[1] = nums[0];
         int resLen = 1;
-        for (int i = 1; i < n; i++) {
-            int lisLenEndWithI = largestSmaller(lisEndValue, 1, resLen, nums[i]) + 1;
-            lisEndValue[lisLenEndWithI] = nums[i];
+        for (int i = 1; i < nums.length; i++) {
+            int lisLenEndWithI = largestSmaller(lisEndValue, nums[i], 0, resLen) + 1;
             resLen = Math.max(resLen, lisLenEndWithI);
+            lisEndValue[lisLenEndWithI] = nums[i];
         }
         return resLen;
     }
 
-    private int largestSmaller(int[] nums, int l, int r, int target) {
+    private int largestSmaller(int[] array, int target, int l, int r) {
         while (r - l > 1) {
             int mid = l + (r - l) / 2;
-            if (nums[mid] < target) {
-                l = mid;
-            } else {
+            if (array[mid] >= target) {
                 r = mid - 1;
+            } else {
+                l = mid;
             }
         }
-        if (nums[r] < target) {
-            return r;
-        } else if (nums[l] < target) {
-            return l;
-        } else {
-            return l - 1;
-        }
+        return array[r] < target ? r : l;
     }
 }
 ```
