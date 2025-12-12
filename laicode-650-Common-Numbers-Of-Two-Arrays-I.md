@@ -1,6 +1,6 @@
 # Laicode 650. Common Numbers Of Two Arrays I(Array version)
 
-和[laicode 652. Common Numbers Of Two Sorted Arrays](laicode-652-Common-Numbers-Of-Two-Sorted-Arrays.md)一样，只不过给定的数组没有排好序。那就排好序再用同样的双指针方法来做。
+参照[leetcode 350](350-intersection-of-two-arrays-ii.md)。
 
 Time complexity: O(nlogn) because of the sorting process.
 

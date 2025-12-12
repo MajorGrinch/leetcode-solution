@@ -1,14 +1,6 @@
 # Laicode 276. Get Count Array
 
-给定一个无序数组，返回每个元素右边比它小的元素个数。这题有点难，不想做可以跳过。
-
-这题我们可以用merge sort的思想来解决，merge sort在merge的过程中会把前后两半有序的给合并成整体有序，那么其实在这个过程中我们可以顺带记录下每个元素右边到底有多少个比它小的元素。那么到底如何记录呢，其实也简单。当我们某一轮是选中左半边某个元素时，那么此时`[mid + 1, j)`的所有元素其实都是在该元素右边但是却比它小的。
-
-话又说回来，我们还不能真的对这个数组进行sort。因为sort之后，顺序就没法保持了。所以我们其实是要对数组下标进行sort，sort的条件就是下标对应元素小的放在前面。用rightSmaller数组来记录每个下标右边到底有多少个元素比自己小。
-
-Time complexity: O(NlogN)
-
-Space complexity: O(N)
+参考[leetcode 315](315-count-of-smaller-numbers-after-self.md)。
 
 ```java
 public class Solution {

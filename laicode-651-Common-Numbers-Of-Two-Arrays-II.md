@@ -1,8 +1,8 @@
 # Laicode 651. Common Numbers Of Two Arrays II(Array version)
 
-## Two pointer approach
+参照[leetcode 350](350-intersection-of-two-arrays-ii.md)可以有两种方法。
 
-这题还是和[laicode 652. Common Numbers Of Two Sorted Arrays](laicode-652-Common-Numbers-Of-Two-Sorted-Arrays.md)差不多，只不过是无序。先排序，后用双指针。
+## Two pointer approach
 
 Time complexity: O(nlogn) because of the sorting.
 
